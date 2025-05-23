@@ -1,13 +1,40 @@
 {
   "files": {
-    "main.css": "/neobank-website/static/css/main.0240d33c.css",
-    "main.js": "/neobank-website/static/js/main.2fa29f42.js",
+    "main.css": "/neobank-website/static/css/main.6c4e1163.css",
+    "main.js": "/neobank-website/static/js/main.0bbd8f46.js",
+    "static/media/uicons-thin-rounded-LFWVTX5C.eot": "/neobank-website/static/media/uicons-thin-rounded-LFWVTX5C.113704fe2cffb14600c8.eot",
+    "static/media/uicons-regular-rounded-ESQGLQQ4.eot": "/neobank-website/static/media/uicons-regular-rounded-ESQGLQQ4.9ac4298c39b2d61ec7b0.eot",
+    "static/media/uicons-bold-rounded-CPL6VNRV.eot": "/neobank-website/static/media/uicons-bold-rounded-CPL6VNRV.81561c67697fc09f050b.eot",
+    "static/media/uicons-solid-rounded-N5CQNTC6.eot": "/neobank-website/static/media/uicons-solid-rounded-N5CQNTC6.ebf71074e49f1cc4e860.eot",
+    "static/media/uicons-thin-straight-X52T7FDE.eot": "/neobank-website/static/media/uicons-thin-straight-X52T7FDE.da5370367c68591325a7.eot",
+    "static/media/uicons-regular-straight-E4NUVXFC.eot": "/neobank-website/static/media/uicons-regular-straight-E4NUVXFC.bf256b6f8c57c1c04ead.eot",
+    "static/media/uicons-bold-straight-UHOZTY66.eot": "/neobank-website/static/media/uicons-bold-straight-UHOZTY66.1023d9a6529a9e7732a6.eot",
+    "static/media/uicons-solid-straight-W4CCEH4W.eot": "/neobank-website/static/media/uicons-solid-straight-W4CCEH4W.e704a0f26ecd5add2611.eot",
+    "static/media/uicons-thin-rounded-IJXIJK3M.woff": "/neobank-website/static/media/uicons-thin-rounded-IJXIJK3M.beab399e036b4f8497d0.woff",
+    "static/media/uicons-regular-rounded-KDJ23353.woff": "/neobank-website/static/media/uicons-regular-rounded-KDJ23353.617b7e86cf6814a44b46.woff",
+    "static/media/uicons-bold-rounded-UTQQXXF3.woff": "/neobank-website/static/media/uicons-bold-rounded-UTQQXXF3.4a23c5df30d392803f73.woff",
+    "static/media/uicons-solid-rounded-UWVI4CEC.woff": "/neobank-website/static/media/uicons-solid-rounded-UWVI4CEC.9ce0ef5e6fa829ac32bd.woff",
+    "static/media/uicons-thin-straight-JPCGBQEF.woff": "/neobank-website/static/media/uicons-thin-straight-JPCGBQEF.b56bfa32f1ed9684b103.woff",
+    "static/media/uicons-regular-straight-AFQI6GFM.woff": "/neobank-website/static/media/uicons-regular-straight-AFQI6GFM.d717599abe25e96c7393.woff",
+    "static/media/uicons-thin-rounded-HOOVQNVT.woff2": "/neobank-website/static/media/uicons-thin-rounded-HOOVQNVT.3dce97ba056be622d4dd.woff2",
+    "static/media/uicons-regular-rounded-J3WOUERV.woff2": "/neobank-website/static/media/uicons-regular-rounded-J3WOUERV.213a21995bbd5d1a3aa9.woff2",
+    "static/media/uicons-bold-straight-3S6L5GRX.woff": "/neobank-website/static/media/uicons-bold-straight-3S6L5GRX.23c3fe173e1cadadc8ae.woff",
+    "static/media/uicons-bold-rounded-MQNABNC6.woff2": "/neobank-website/static/media/uicons-bold-rounded-MQNABNC6.f1fa27ef1cfbccecbdcf.woff2",
+    "static/media/uicons-solid-straight-ITFA7HIK.woff": "/neobank-website/static/media/uicons-solid-straight-ITFA7HIK.ab88e50e21486ce8c779.woff",
+    "static/media/uicons-solid-rounded-IYSBBSWN.woff2": "/neobank-website/static/media/uicons-solid-rounded-IYSBBSWN.fc3e058f3a4c7819b24e.woff2",
+    "static/media/uicons-thin-straight-2YUSDJEW.woff2": "/neobank-website/static/media/uicons-thin-straight-2YUSDJEW.eaff449f0b716b514fd3.woff2",
+    "static/media/uicons-regular-straight-2I3O25UC.woff2": "/neobank-website/static/media/uicons-regular-straight-2I3O25UC.875b8c8cb6a2ab6f6075.woff2",
+    "static/media/uicons-bold-straight-3JAZKD6K.woff2": "/neobank-website/static/media/uicons-bold-straight-3JAZKD6K.31682537723a048ab69e.woff2",
+    "static/media/uicons-solid-straight-4DZ3VA4V.woff2": "/neobank-website/static/media/uicons-solid-straight-4DZ3VA4V.10a42bec98afb83391ab.woff2",
+    "static/media/uicons-brands-ZJWE2ELA.eot": "/neobank-website/static/media/uicons-brands-ZJWE2ELA.a6db396393f1097f0bfb.eot",
+    "static/media/uicons-brands-PQBQF6T3.woff": "/neobank-website/static/media/uicons-brands-PQBQF6T3.7ab29100c1f05469b972.woff",
+    "static/media/uicons-brands-XJPKRNBN.woff2": "/neobank-website/static/media/uicons-brands-XJPKRNBN.033917e9fd41cfa9727c.woff2",
     "index.html": "/neobank-website/index.html",
-    "main.0240d33c.css.map": "/neobank-website/static/css/main.0240d33c.css.map",
-    "main.2fa29f42.js.map": "/neobank-website/static/js/main.2fa29f42.js.map"
+    "main.6c4e1163.css.map": "/neobank-website/static/css/main.6c4e1163.css.map",
+    "main.0bbd8f46.js.map": "/neobank-website/static/js/main.0bbd8f46.js.map"
   },
   "entrypoints": [
-    "static/css/main.0240d33c.css",
-    "static/js/main.2fa29f42.js"
+    "static/css/main.6c4e1163.css",
+    "static/js/main.0bbd8f46.js"
   ]
 }
