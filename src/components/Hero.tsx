@@ -74,11 +74,11 @@ const Hero: React.FC<{}> = () => {
     return (
         <div className="w-full h-screen">
             <div className="absolute flex flex-col sm:flex-row h-full w-full py-20 px-10 sm:px-10 lg:px-20 z-30">
-                <div className="w-full sm:w-1/2 h-[30rem] sm:h-full flex flex-col gap-3 justify-center items-center py-10 sm:py-0 sm:items-start sm:pr-10">
-                    <p className="text-xl text-muted text-center sm:text-left">
+                <div className="w-full sm:w-1/2 h-[30rem] sm:h-full flex flex-col gap-3 justify-center py-10 sm:py-0 sm:items-start sm:pr-10">
+                    <p className="text-xl text-muted text-left">
                         Banking that fits in your pocket - and your lifestyle.
                     </p>
-                    <h1 className="text-5xl font-heading leading-[1.3] text-center sm:text-left h-52 sm:h-auto">
+                    <h1 className="max-w-[80%] text-4xl sm:text-5xl font-heading leading-[1.3] text-left sm:h-auto inline-block">
                         Online mobile banking made for
                         <span className="px-3 ml-3 font-bold rounded-xl bg-pink whitespace-nowrap">
                             {labelText}
