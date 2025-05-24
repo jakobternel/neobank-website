@@ -39,6 +39,13 @@ const Hero: React.FC<{}> = () => {
                 loop: true,
             });
 
+            setTimeout(() => {
+                const canvas = document.getElementById("colorbgcanvas");
+                if (canvas) {
+                    canvas.style.height = "100%";
+                }
+            }, 100);
+
             return () => {
                 background.destroy && background.destroy();
             };
@@ -72,8 +79,8 @@ const Hero: React.FC<{}> = () => {
     }, [labelText, wordIndex, isDeleting]);
 
     return (
-        <div className="w-full h-screen">
-            <div className="absolute flex flex-col sm:flex-row h-full w-full py-20 px-10 sm:px-10 lg:px-20 z-30">
+        <div className="w-full h-full sm:h-screen relative">
+            <div className="relative sm:absolute flex flex-col sm:flex-row h-full w-full py-20 px-10 sm:px-10 lg:px-20 z-30">
                 <div className="w-full sm:w-1/2 h-[30rem] sm:h-full flex flex-col gap-3 justify-center py-10 sm:py-0 sm:items-start sm:pr-10">
                     <p className="text-xl text-muted text-left">
                         Banking that fits in your pocket - and your lifestyle.
@@ -108,7 +115,7 @@ const Hero: React.FC<{}> = () => {
                 }}
             ></div>
             <div
-                className="w-full h-full z-10 opacity-20"
+                className="absolute w-full h-full z-10 top-0 opacity-20"
                 id="blurBackground"
                 ref={backgroundRef}
             ></div>
