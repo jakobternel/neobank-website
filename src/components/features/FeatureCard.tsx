@@ -24,7 +24,6 @@ const FeatureCard: React.FC<{
         const rotateY = ((x - centerX) / centerX) * 10;
 
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        card.style.boxShadow = "0 0 10px 3px rgba(255, 255, 255, 0.1)";
     };
 
     const resetRotation = () => {
@@ -39,7 +38,18 @@ const FeatureCard: React.FC<{
             className="w-96 shadow-xl"
             onMouseEnter={() => iconRef.current?.play()}
             onMouseMove={handleMouseMove}
-            onMouseLeave={resetRotation}
+            onMouseLeave={() => {
+                resetRotation();
+                if (cardRef.current) {
+                    cardRef.current.style.boxShadow = "";
+                }
+            }}
+            onMouseOver={() => {
+                if (cardRef.current) {
+                    cardRef.current.style.boxShadow =
+                        "0 0 10px 3px rgba(255, 255, 255, 0.1)";
+                }
+            }}
         >
             <div
                 className="w-full h-full bg-secondary hover:bg-backgroundLight flex flex-col gap-5 p-5 border-2 border-outline transition-all rounded-3xl items-center justify-center"
