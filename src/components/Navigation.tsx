@@ -22,7 +22,7 @@ const Navigation: React.FC<{}> = () => {
             >
                 <div
                     className={`${
-                        scrolled ? "bg-background" : ""
+                        scrolled && !navOpen ? "bg-background" : ""
                     } transition-all flex flex-col sm:flex-row justify-start sm:justify-between sm:px-10 lg:px-20 sm:py-4 items-start sm:items-center h-full`}
                 >
                     <div className="w-full sm:w-[20%] md:w-[30%] mb-10 sm:mb-0 sm:justify-start flex flex-row items-center justify-between">
@@ -51,9 +51,9 @@ const Navigation: React.FC<{}> = () => {
 
             <i
                 onClick={() => setNavOpen(true)}
-                className={`${
-                    navOpen ? "hidden" : "absolute"
-                } sm:hidden fi fi-br-menu-burger text-2xl flex text-light right-10 top-10 cursor-pointer`}
+                className={`${navOpen ? "hidden" : "absolute"} ${
+                    scrolled ? "bg-background" : ""
+                } transition-all sm:hidden fi fi-br-menu-burger text-2xl flex text-light right-5 top-7 cursor-pointer p-5 rounded-full`}
             ></i>
         </div>
     );
