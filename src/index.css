@@ -1,6 +1,6 @@
 /* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 
 /* Import icons */
 @import "@flaticon/flaticon-uicons/css/all/all.css";
@@ -10,11 +10,62 @@
 @tailwind utilities;
 
 @layer base {
-  p, h1, h2, h3, h4, h5, h6, div, span {
-    @apply text-light;
-  }
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    div,
+    span {
+        @apply text-main;
+    }
 }
 
-html, body {
-    @apply w-full h-full p-0 m-0 bg-background;
+html,
+body {
+    @apply w-full h-full p-0 m-0 bg-background transition-all;
+}
+
+[data-theme="light"] {
+    --background: #f1f5f9;
+    --secondary: #e2e8f0;
+    --backgroundLight: #f8fafc;
+    --outline: #cbd5e1;
+
+    --primary: #60a5fa;
+    --primaryOff: #3b82f6;
+
+    --main: #0d1b2a;
+    --darker: #1e293b;
+    --muted: #475569;
+
+    --lime: #a3e635;
+    --pink: #f472b6;
+    --cyan: #06b6d4;
+
+    --shadowSolid: rgba(241, 245, 249, 1);
+    --shadowTransparent: rgba(241, 245, 249, 0);
+}
+
+[data-theme="dark"] {
+    --background: #0d1b2a;
+    --secondary: #1e293b;
+    --backgroundLight: #263144;
+    --outline: #334155;
+
+    --primary: #2563eb;
+    --primaryOff: #1e4fdb;
+
+    --main: #f1f5f9;
+    --darker: #cbd5e1;
+    --muted: #94a3b8;
+
+    --lime: #a3e635;
+    --pink: #f472b6;
+    --cyan: #06b6d4;
+
+    --shadowSolid: rgba(13,27,42,1);
+    --shadowTransparent: rgba(13,27,42,0);
 }

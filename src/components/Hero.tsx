@@ -92,7 +92,7 @@ const Hero: React.FC<{}> = () => {
                         </span>
                     </h1>
                     <div className="flex flex-row gap-10 mt-6 items-center">
-                        <p className="text-muted hover:text-light cursor-pointer transition-all">
+                        <p className="text-muted hover:text-main cursor-pointer transition-all">
                             Learn More
                         </p>
                         <p className="px-5 py-3 bg-primaryOff hover:bg-primary transition-all cursor-pointer rounded-xl">
@@ -111,7 +111,7 @@ const Hero: React.FC<{}> = () => {
                 className="absolute w-full h-60 bottom-0 z-20"
                 style={{
                     background:
-                        "linear-gradient(180deg, rgba(13,27,42,0) 0%, rgba(13,27,42,1) 100%)",
+                        "linear-gradient(180deg, var(--shadowTransparent) 0%, var(--shadowSolid) 100%)",
                 }}
             ></div>
             <div

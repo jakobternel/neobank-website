@@ -13,6 +13,16 @@ const Navigation: React.FC<{}> = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const toggleDarkLightMode = (): void => {
+        const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+
+        document.documentElement.setAttribute(
+            "data-theme",
+            currentTheme === "dark" ? "light" : "dark"
+        );
+    };
+
     return (
         <div className="z-50 sticky top-0">
             <div
@@ -29,22 +39,36 @@ const Navigation: React.FC<{}> = () => {
                         <h1 className="font-heading text-4xl sm:text-2xl font-bold">
                             Nomadix
                         </h1>
-                        <i
-                            onClick={() => setNavOpen(false)}
-                            className="fi fi-br-cross text-2xl flex text-light sm:hidden cursor-pointer"
-                        ></i>
+                        <div className="flex flex-row gap-5 sm:hidden text-main text-2xl">
+                            <i
+                                onClick={toggleDarkLightMode}
+                                className={`fi ${
+                                    true ? "fi-br-sun" : "fi-br-moon-stars"
+                                } flex cursor-pointer`}
+                            ></i>
+                            <i
+                                onClick={() => setNavOpen(false)}
+                                className="fi fi-br-cross flex cursor-pointer"
+                            ></i>
+                        </div>
                     </div>
-                    <div className="w-full sm:w-[60%] md:w-[40%] flex flex-col sm:flex-row gap-5 justify-start sm:justify-center text-xl sm:text-base *:text-muted *:transition-all *:cursor-pointer *:border-b-outline *:border-b-2 *:pb-3 *:sm:pb-0 *:sm:border-none">
-                        <p className="hover:text-light">Features</p>
-                        <p className="hover:text-light">Comparison</p>
-                        <p className="hover:text-light">About Us</p>
+                    <div className="w-full sm:w-[60%] md:w-[40%] flex flex-col sm:flex-row gap-5 justify-start sm:justify-center text-xl sm:text-base *:text-muted *:cursor-pointer *:border-b-outline *:border-b-2 *:pb-3 *:sm:pb-0 *:sm:border-none">
+                        <p className="hover:text-main">Features</p>
+                        <p className="hover:text-main">Comparison</p>
+                        <p className="hover:text-main">About Us</p>
                     </div>
                     <div className="flex-grow"></div>
                     <div className="w-full sm:w-[20%] md:w-[30%] flex gap-5 flex-col sm:flex-row items-center justify-start sm:justify-end text-xl sm:text-base *:w-full *:sm:w-auto *:text-center *:px-6 *:py-2 *:rounded-xl *:cursor-pointer *:transition-all">
-                        <p className="text-muted hover:text-light border-2 border-outline sm:border-none block sm:hidden lg:block">
+                        <p className="text-muted hover:text-main border-2 border-outline sm:border-none block md:hidden lg:block">
                             Join Today
                         </p>
                         <p className="bg-primaryOff hover:bg-primary">Log In</p>
+                        <i
+                            onClick={toggleDarkLightMode}
+                            className={`fi ${
+                                true ? "fi-br-sun" : "fi-br-moon-stars"
+                            } hidden sm:flex cursor-pointer text-muted hover:text-main bg-background bg-opacity-25 hover:bg-opacity-50 !p-3`}
+                        ></i>
                     </div>
                 </div>
             </div>

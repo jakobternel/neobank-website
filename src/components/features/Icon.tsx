@@ -1,4 +1,10 @@
-import { forwardRef, useImperativeHandle, useRef } from "react";
+import {
+    forwardRef,
+    useEffect,
+    useImperativeHandle,
+    useRef,
+    useState,
+} from "react";
 import { Player } from "@lordicon/react";
 
 export type IconHandle = {
@@ -6,7 +12,26 @@ export type IconHandle = {
 };
 
 const Icon = forwardRef<IconHandle, { icon: any }>(({ icon }, ref) => {
+    const [theme, setTheme] = useState<string>(
+        document.documentElement.getAttribute("data-theme") || "light"
+    );
+
     const iconPlayerRef = useRef<Player>(null);
+
+    useEffect(() => {
+        const observer = new MutationObserver(() => {
+            const newTheme =
+                document.documentElement.getAttribute("data-theme") || "light";
+            setTheme(newTheme);
+        });
+
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["data-theme"],
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     useImperativeHandle(ref, () => ({
         play() {
@@ -19,7 +44,7 @@ const Icon = forwardRef<IconHandle, { icon: any }>(({ icon }, ref) => {
             ref={iconPlayerRef}
             icon={icon}
             size={50}
-            colors="outline:#A3E635,primary:#F1F5F9"
+            colors={`primary:#${theme === "dark" ? "F1F5F9" : "0D1B2A"}`}
         />
     );
 });
