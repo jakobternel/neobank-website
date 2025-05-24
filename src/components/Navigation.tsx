@@ -1,7 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navigation: React.FC<{}> = () => {
     const [navOpen, setNavOpen] = useState<boolean>(false);
+    const [scrolled, setScrolled] = useState<boolean>(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <div className="z-50 sticky top-0">
@@ -10,7 +20,11 @@ const Navigation: React.FC<{}> = () => {
                     navOpen ? "block" : "hidden"
                 } sm:block absolute h-screen w-screen top-0 left-0 sm:h-auto bg-secondary sm:bg-transparent p-10 sm:p-0`}
             >
-                <div className="flex flex-col sm:flex-row justify-start sm:justify-between sm:px-10 lg:px-20 sm:py-4 items-start sm:items-center h-full">
+                <div
+                    className={`${
+                        scrolled ? "bg-background" : ""
+                    } transition-all flex flex-col sm:flex-row justify-start sm:justify-between sm:px-10 lg:px-20 sm:py-4 items-start sm:items-center h-full`}
+                >
                     <div className="w-full sm:w-[20%] md:w-[30%] mb-10 sm:mb-0 sm:justify-start flex flex-row items-center justify-between">
                         <h1 className="font-heading text-4xl sm:text-2xl font-bold">
                             Nomadix
