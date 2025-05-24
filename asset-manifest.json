@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/neobank-website/static/css/main.fca6d78c.css",
-    "main.js": "/neobank-website/static/js/main.1c481a34.js",
+    "main.css": "/neobank-website/static/css/main.e291c90f.css",
+    "main.js": "/neobank-website/static/js/main.77006f24.js",
     "static/media/uicons-thin-rounded-LFWVTX5C.eot": "/neobank-website/static/media/uicons-thin-rounded-LFWVTX5C.113704fe2cffb14600c8.eot",
     "static/media/uicons-regular-rounded-ESQGLQQ4.eot": "/neobank-website/static/media/uicons-regular-rounded-ESQGLQQ4.9ac4298c39b2d61ec7b0.eot",
     "static/media/uicons-bold-rounded-CPL6VNRV.eot": "/neobank-website/static/media/uicons-bold-rounded-CPL6VNRV.81561c67697fc09f050b.eot",
@@ -30,11 +30,11 @@
     "static/media/uicons-brands-PQBQF6T3.woff": "/neobank-website/static/media/uicons-brands-PQBQF6T3.7ab29100c1f05469b972.woff",
     "static/media/uicons-brands-XJPKRNBN.woff2": "/neobank-website/static/media/uicons-brands-XJPKRNBN.033917e9fd41cfa9727c.woff2",
     "index.html": "/neobank-website/index.html",
-    "main.fca6d78c.css.map": "/neobank-website/static/css/main.fca6d78c.css.map",
-    "main.1c481a34.js.map": "/neobank-website/static/js/main.1c481a34.js.map"
+    "main.e291c90f.css.map": "/neobank-website/static/css/main.e291c90f.css.map",
+    "main.77006f24.js.map": "/neobank-website/static/js/main.77006f24.js.map"
   },
   "entrypoints": [
-    "static/css/main.fca6d78c.css",
-    "static/js/main.1c481a34.js"
+    "static/css/main.e291c90f.css",
+    "static/js/main.77006f24.js"
   ]
 }
