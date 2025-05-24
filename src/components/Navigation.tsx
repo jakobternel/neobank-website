@@ -4,7 +4,7 @@ const Navigation: React.FC<{}> = () => {
     const [navOpen, setNavOpen] = useState<boolean>(false);
 
     return (
-        <div className="z-50 absolute">
+        <div className="z-50 sticky top-0">
             <div
                 className={`${
                     navOpen ? "block" : "hidden"
@@ -39,7 +39,7 @@ const Navigation: React.FC<{}> = () => {
                 onClick={() => setNavOpen(true)}
                 className={`${
                     navOpen ? "hidden" : "absolute"
-                } sm:hidden fi fi-br-menu-burger text-2xl flex text-light left-10 top-10 cursor-pointer`}
+                } sm:hidden fi fi-br-menu-burger text-2xl flex text-light right-10 top-10 cursor-pointer`}
             ></i>
         </div>
     );
