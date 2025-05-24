@@ -5,7 +5,7 @@ const labels = [
     "students",
     "travellers",
     "expats",
-    "digital nomads",
+    "nomads",
     "professionals",
     "freelancers",
     "influencers",
@@ -78,7 +78,7 @@ const Hero: React.FC<{}> = () => {
                     <p className="text-xl text-muted text-left">
                         Banking that fits in your pocket - and your lifestyle.
                     </p>
-                    <h1 className="max-w-[80%] text-4xl sm:text-5xl font-heading leading-[1.3] text-left sm:h-auto inline-block">
+                    <h1 className="max-w-[80%] text-4xl sm:text-6xl font-heading leading-[1.5] sm:leading-[1.3] text-left sm:h-auto">
                         Online mobile banking made for
                         <span className="px-3 ml-3 font-bold rounded-xl bg-pink whitespace-nowrap">
                             {labelText}
