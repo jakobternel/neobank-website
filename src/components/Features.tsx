@@ -38,7 +38,7 @@ const Features: React.FC<{}> = () => {
                     />
                     <FeatureCard
                         icon={globe}
-                        text="No Internation Transaction Fees"
+                        text="No International Transaction Fees"
                         description={
                             "Shop or send money worldwide without extra costs. Enjoy borderless spending and transfers with zero international fees."
                         }

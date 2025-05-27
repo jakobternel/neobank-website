@@ -92,11 +92,11 @@ const Hero: React.FC<{}> = () => {
                         </span>
                     </h1>
                     <div className="flex flex-row gap-10 mt-6 items-center">
-                        <p className="text-muted hover:text-main cursor-pointer transition-all">
-                            Learn More
-                        </p>
                         <p className="px-5 py-3 bg-primaryOff hover:bg-primary transition-all cursor-pointer rounded-xl">
                             Join Today!
+                        </p>
+                        <p className="text-muted hover:text-main cursor-pointer transition-all">
+                            Learn More
                         </p>
                     </div>
                 </div>

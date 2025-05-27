@@ -8,8 +8,10 @@ module.exports = {
             },
             colors: {
                 background: "var(--background)",
-                secondary: "var(--secondary)",
+                backgroundLighter: "var(--backgroundLighter)",
                 backgroundLight: "var(--backgroundLight)",
+
+                secondary: "var(--secondary)",
                 outline: "var(--outline)",
 
                 primary: "var(--primary)",
@@ -20,8 +22,11 @@ module.exports = {
                 muted: "var(--muted)",
 
                 lime: "var(--lime)",
+                limeDarker: "var(--limeDarker)",
                 pink: "var(--pink)",
+                pinkDarker: "var(--pinkDarker)",
                 cyan: "var(--cyan)",
+                cyanDarker: "var(--cyanDarker)",
             },
         },
     },

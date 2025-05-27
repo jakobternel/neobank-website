@@ -32,7 +32,7 @@ const Navigation: React.FC<{}> = () => {
             >
                 <div
                     className={`${
-                        scrolled && !navOpen ? "bg-background" : ""
+                        scrolled && !navOpen ? "bg-backgroundLighter" : ""
                     } transition-all flex flex-col sm:flex-row justify-start sm:justify-between sm:px-10 lg:px-20 sm:py-4 items-start sm:items-center h-full`}
                 >
                     <div className="w-full sm:w-[20%] md:w-[30%] mb-10 sm:mb-0 sm:justify-start flex flex-row items-center justify-between">
@@ -59,7 +59,7 @@ const Navigation: React.FC<{}> = () => {
                     </div>
                     <div className="flex-grow"></div>
                     <div className="w-full sm:w-[20%] md:w-[30%] flex gap-5 flex-col sm:flex-row items-center justify-start sm:justify-end text-xl sm:text-base *:w-full *:sm:w-auto *:text-center *:px-6 *:py-2 *:rounded-xl *:cursor-pointer *:transition-all">
-                        <p className="text-muted hover:text-main border-2 border-outline sm:border-none block md:hidden lg:block">
+                        <p className="text-muted hover:text-main border-2 border-outline sm:border-none block sm:hidden lg:block">
                             Join Today
                         </p>
                         <p className="bg-primaryOff hover:bg-primary">Log In</p>
@@ -67,7 +67,7 @@ const Navigation: React.FC<{}> = () => {
                             onClick={toggleDarkLightMode}
                             className={`fi ${
                                 true ? "fi-br-sun" : "fi-br-moon-stars"
-                            } hidden sm:flex cursor-pointer text-muted hover:text-main bg-background bg-opacity-25 hover:bg-opacity-50 !p-3`}
+                            } hidden sm:flex cursor-pointer text-muted hover:text-main bg-backgroundLighter bg-opacity-25 hover:bg-opacity-50 !p-3`}
                         ></i>
                     </div>
                 </div>
@@ -76,7 +76,7 @@ const Navigation: React.FC<{}> = () => {
             <i
                 onClick={() => setNavOpen(true)}
                 className={`${navOpen ? "hidden" : "absolute"} ${
-                    scrolled ? "bg-background" : ""
+                    scrolled ? "bg-backgroundLighter" : ""
                 } transition-all sm:hidden fi fi-br-menu-burger text-2xl flex text-light right-5 top-7 cursor-pointer p-5 rounded-full`}
             ></i>
         </div>
