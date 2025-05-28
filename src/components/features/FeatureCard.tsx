@@ -1,11 +1,14 @@
 import Icon, { IconHandle } from "./Icon";
 import { useRef } from "react";
+import { useAppSelector } from "../../store/hooks";
 
 const FeatureCard: React.FC<{
     icon: any;
     text: string;
     description: string;
 }> = ({ icon, text, description }) => {
+    const theme = useAppSelector((state) => state.theme.mode);
+
     const iconRef = useRef<IconHandle>(null);
     const cardRef = useRef<HTMLDivElement>(null);
 
@@ -26,6 +29,16 @@ const FeatureCard: React.FC<{
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     };
 
+    const handleMouseOver = () => {
+        if (cardRef.current) {
+            cardRef.current.style.boxShadow = `0 0 10px 3px ${
+                theme === "dark"
+                    ? "rgba(255, 255, 255, 0.1)"
+                    : "rgba(0, 0, 0, 0.1)"
+            }`;
+        }
+    };
+
     const resetRotation = () => {
         if (cardRef.current) {
             cardRef.current.style.transform =
@@ -37,7 +50,9 @@ const FeatureCard: React.FC<{
         <div
             className="w-96"
             onMouseEnter={() => iconRef.current?.play()}
-            onMouseMove={handleMouseMove}
+            onMouseMove={(e) => {
+                handleMouseMove(e);
+            }}
             onMouseLeave={() => {
                 resetRotation();
                 if (cardRef.current) {
@@ -46,12 +61,7 @@ const FeatureCard: React.FC<{
             }}
             onMouseOver={() => {
                 if (cardRef.current) {
-                    cardRef.current.style.boxShadow = `0 0 10px 3px ${
-                        document.documentElement.getAttribute("data-theme") ===
-                        "dark"
-                            ? "rgba(255, 255, 255, 0.1)"
-                            : "rgba(0, 0, 0, 0.1)"
-                    }`;
+                    handleMouseOver();
                 }
             }}
         >

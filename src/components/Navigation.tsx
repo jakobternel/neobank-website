@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { toggleTheme } from "../store/slices/theme";
 
 const Navigation: React.FC<{}> = () => {
     const [navOpen, setNavOpen] = useState<boolean>(false);
     const [scrolled, setScrolled] = useState<boolean>(false);
+
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -12,16 +16,6 @@ const Navigation: React.FC<{}> = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
-    const toggleDarkLightMode = (): void => {
-        const currentTheme =
-            document.documentElement.getAttribute("data-theme");
-
-        document.documentElement.setAttribute(
-            "data-theme",
-            currentTheme === "dark" ? "light" : "dark"
-        );
-    };
 
     return (
         <div className="z-50 sticky top-0">
@@ -41,7 +35,9 @@ const Navigation: React.FC<{}> = () => {
                         </h1>
                         <div className="flex flex-row gap-5 sm:hidden text-main text-2xl">
                             <i
-                                onClick={toggleDarkLightMode}
+                                onClick={() => {
+                                    dispatch(toggleTheme());
+                                }}
                                 className={`fi ${
                                     true ? "fi-br-sun" : "fi-br-moon-stars"
                                 } flex cursor-pointer`}
@@ -64,7 +60,9 @@ const Navigation: React.FC<{}> = () => {
                         </p>
                         <p className="bg-primaryOff hover:bg-primary">Log In</p>
                         <i
-                            onClick={toggleDarkLightMode}
+                            onClick={() => {
+                                dispatch(toggleTheme());
+                            }}
                             className={`fi ${
                                 true ? "fi-br-sun" : "fi-br-moon-stars"
                             } hidden sm:flex cursor-pointer text-muted hover:text-main bg-backgroundLighter bg-opacity-25 hover:bg-opacity-50 !p-3`}
