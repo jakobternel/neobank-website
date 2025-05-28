@@ -25,7 +25,12 @@
 
 html,
 body {
-    @apply w-full h-full p-0 m-0 bg-background transition-all;
+    @apply w-full h-full p-0 m-0  transition-all bg-background;
+
+}
+
+.breakpointDev {
+    @apply !bg-red-500 sm:!bg-orange-500 md:!bg-yellow-500 lg:!bg-green-500 xl:!bg-blue-500;
 }
 
 .fi {
