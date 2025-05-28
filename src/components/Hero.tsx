@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { BlurDotBg } from "../modules/BlurDotBg.module";
+import { useAppSelector } from "../store/hooks";
 
 const labels = [
     "students",
@@ -17,6 +18,8 @@ const labels = [
 ];
 
 const Hero: React.FC<{}> = () => {
+    const theme = useAppSelector((state) => state.theme.mode);
+
     const [labelText, setLabelText] = useState<string>("");
     const [wordIndex, setWordIndex] = useState<number>(0);
     const [isDeleting, setIsDeleting] = useState(false);
@@ -115,7 +118,9 @@ const Hero: React.FC<{}> = () => {
                 }}
             ></div>
             <div
-                className="absolute w-full h-full z-10 top-0 opacity-20"
+                className={`absolute w-full h-full z-10 top-0 ${
+                    theme === "light" ? "opacity-50" : "opacity-20"
+                }`}
                 id="blurBackground"
                 ref={backgroundRef}
             ></div>
