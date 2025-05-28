@@ -48,7 +48,7 @@ const Navigation: React.FC<{}> = () => {
                             ></i>
                         </div>
                     </div>
-                    <div className="w-full sm:w-[60%] md:w-[40%] flex flex-col sm:flex-row gap-5 justify-start sm:justify-center text-xl sm:text-base *:text-muted *:cursor-pointer *:border-b-outline *:border-b-2 *:pb-3 *:sm:pb-0 *:sm:border-none">
+                    <div className="w-full sm:w-[60%] md:w-[40%] flex flex-col sm:flex-row gap-5 justify-start sm:justify-center text-xl sm:text-base *:text-muted *:cursor-pointer *:border-b-outline *:border-b-2 *:pb-3 *:sm:pb-0 *:sm:border-none *:transition-all">
                         <p className="hover:text-main">Features</p>
                         <p className="hover:text-main">Comparison</p>
                         <p className="hover:text-main">About Us</p>

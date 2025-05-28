@@ -15,7 +15,7 @@ const InternationalBenefitItem: React.FC<{
     );
 };
 
-const InternationalBenefits: React.FC<{}> = ({}) => {
+const InternationalBenefits: React.FC = () => {
     return (
         <div className="w-full flex flex-col md:flex-row sm:gap-10 md:gap-12 xl:gap-20">
             <div className="bg-limeDarker sm:rounded-r-3xl self-stretch w-full sm:w-4/5 md:w-2/5 px-10 sm:pl-20 md:pl-12 lg:pl-16 xl:pl-20 sm:pr-10 py-10 flex flex-col justify-between gap-6 *:!text-black">
