@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { useAppDispatch } from "../store/hooks";
 import { toggleTheme } from "../store/slices/theme";
 
 const Navigation: React.FC<{}> = () => {
@@ -40,11 +40,11 @@ const Navigation: React.FC<{}> = () => {
                                 }}
                                 className={`fi ${
                                     true ? "fi-br-sun" : "fi-br-moon-stars"
-                                } flex cursor-pointer`}
+                                } cursor-pointer`}
                             ></i>
                             <i
                                 onClick={() => setNavOpen(false)}
-                                className="fi fi-br-cross flex cursor-pointer"
+                                className="fi fi-br-cross cursor-pointer"
                             ></i>
                         </div>
                     </div>
@@ -75,7 +75,7 @@ const Navigation: React.FC<{}> = () => {
                 onClick={() => setNavOpen(true)}
                 className={`${navOpen ? "hidden" : "absolute"} ${
                     scrolled ? "bg-backgroundLighter" : ""
-                } transition-all sm:hidden fi fi-br-menu-burger text-2xl flex text-light right-5 top-7 cursor-pointer p-5 rounded-full`}
+                } transition-all sm:hidden fi fi-br-menu-burger text-2xl text-light right-5 top-7 cursor-pointer p-5 rounded-full`}
             ></i>
         </div>
     );

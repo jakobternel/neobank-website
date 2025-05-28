@@ -55,8 +55,9 @@ const Footer: React.FC<{}> = () => {
                                 "Security",
                             ].map((text, id) => (
                                 <div key={id}>
-                                    <p className="inline-block text-muted hover:text-main cursor-pointer transition-colors">
+                                    <p className="group inline-flex items-center gap-1 text-muted hover:text-main cursor-pointer transition-colors">
                                         {text}
+                                        <i className="fi fi-rr-arrow-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
                                     </p>
                                 </div>
                             ))}
@@ -74,8 +75,9 @@ const Footer: React.FC<{}> = () => {
                                 "Careers",
                             ].map((text, id) => (
                                 <div key={id}>
-                                    <p className="inline-block text-muted hover:text-main cursor-pointer transition-colors">
+                                    <p className="group inline-flex items-center gap-1 text-muted hover:text-main cursor-pointer transition-colors">
                                         {text}
+                                        <i className="fi fi-rr-arrow-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
                                     </p>
                                 </div>
                             ))}
