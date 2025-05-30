@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { useAppDispatch } from "../store/hooks";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { toggleTheme } from "../store/slices/theme";
 
 const Navigation: React.FC<{}> = () => {
+    const theme = useAppSelector((state) => state.theme.mode);
+
     const [navOpen, setNavOpen] = useState<boolean>(false);
     const [scrolled, setScrolled] = useState<boolean>(false);
 
@@ -39,7 +41,9 @@ const Navigation: React.FC<{}> = () => {
                                     dispatch(toggleTheme());
                                 }}
                                 className={`fi ${
-                                    true ? "fi-br-sun" : "fi-br-moon-stars"
+                                    theme === "dark"
+                                        ? "fi-br-sun"
+                                        : "fi-br-moon-stars"
                                 } cursor-pointer`}
                             ></i>
                             <i
@@ -64,8 +68,10 @@ const Navigation: React.FC<{}> = () => {
                                 dispatch(toggleTheme());
                             }}
                             className={`fi ${
-                                true ? "fi-br-sun" : "fi-br-moon-stars"
-                            } hidden sm:flex cursor-pointer text-muted hover:text-main bg-backgroundLighter bg-opacity-25 hover:bg-opacity-50 !p-3`}
+                                theme === "dark"
+                                    ? "fi-br-sun"
+                                    : "fi-br-moon-stars"
+                            } !hidden sm:!flex cursor-pointer text-muted hover:text-main bg-backgroundLighter bg-opacity-25 hover:bg-opacity-50 !p-3`}
                         ></i>
                     </div>
                 </div>
