@@ -1,4 +1,4 @@
-import Icon, { IconHandle } from "./Icon";
+import Icon, { IconHandle } from "../shared/Icon";
 import { useRef } from "react";
 import { useAppSelector } from "../../store/hooks";
 
