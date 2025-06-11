@@ -17,9 +17,9 @@ const Features: React.FC<{}> = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-10 justify-center">
                     <FeatureCard
                         icon={savings}
-                        text="Auto Saving"
+                        text="Smarter Saving"
                         description={
-                            "Automatically set aside money effortlessly so your savings grow without you thinking about it. Stay on track with your goals without extra effort or stress."
+                            "Effortlessly grow your money with powerful savings tools built for real life. From high-interest returns to collaborative goals, we help you save more."
                         }
                     />
                     <FeatureCard
