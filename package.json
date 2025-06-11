@@ -27,10 +27,10 @@
     },
     "homepage": "https://jakobternel.github.io/neobank-website/",
     "scripts": {
-        "start": "react-scripts start",
-        "test": "react-scripts test",
+        "start": "craco start",
+        "test": "craco test",
         "eject": "react-scripts eject",
-        "build": "CI=false react-scripts build"
+        "build": "CI=false craco build"
     },
     "eslintConfig": {
         "extends": [
@@ -51,6 +51,8 @@
         ]
     },
     "devDependencies": {
+        "@craco/craco": "^7.1.0",
+        "@svgr/webpack": "^8.1.0",
         "@types/react-redux": "^7.1.34",
         "autoprefixer": "^10.4.21",
         "postcss": "^8.5.3",

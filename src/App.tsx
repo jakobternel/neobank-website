@@ -8,6 +8,7 @@ import InternationalBenefits from "./components/InternationalBenefits";
 import Crypto from "./components/Crypto";
 import News from "./components/News";
 import FAQ from "./components/FAQ";
+import Download from "./components/Download";
 import Footer from "./components/Footer";
 
 import { useAppSelector } from "./store/hooks";
@@ -31,6 +32,7 @@ function App() {
                 <Crypto />
                 <News />
                 <FAQ />
+                <Download />
                 <Footer />
             </div>
         </div>

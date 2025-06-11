@@ -19,7 +19,7 @@ const Expandable: React.FC<{ title: string; content: string }> = ({
 
     return (
         <div
-            className="border-2 p-3 cursor-pointer border-outline rounded-xl flex flex-col"
+            className="border-2 p-3 cursor-pointer border-outline rounded-xl flex flex-col bg-backgroundLighter"
             onClick={() => {
                 setExpanded((prev) => !prev);
             }}
