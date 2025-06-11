@@ -48,7 +48,7 @@ const FeatureCard: React.FC<{
 
     return (
         <div
-            className="w-96"
+            className="w-full md:max-w-96"
             onMouseEnter={() => iconRef.current?.play()}
             onMouseMove={(e) => {
                 handleMouseMove(e);

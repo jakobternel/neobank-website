@@ -142,7 +142,7 @@ const Crypto: React.FC = () => {
                     />
                 </div>
             </div>
-            <div className="w-full md:w-7/12 lg:w-1/2 pl-0 md:pr-20 md:py-10 flex flex-col gap-5 justify-center">
+            <div className="w-full md:w-7/12 lg:w-1/2 md:pl-0 md:pr-20 md:py-10 px-10 md:px-0 flex flex-col gap-5 justify-center">
                 <h2 className="font-heading text-4xl font-extrabold text-center md:text-left">
                     Seamless Crypto Integration
                 </h2>
@@ -151,9 +151,11 @@ const Crypto: React.FC = () => {
                     popular coins like Bitcoin, Ethereum, and Monero — securely
                     and without extra fees.
                 </p>
-                <div className="mt-10 rounded-xl w-3/4 self-center md:w-full bg-backgroundLight shadow-md flex p-3 gap-3">
+                <div className="mt-10 rounded-xl w-full self-center bg-backgroundLight shadow-md flex p-3 gap-3">
                     <div className="w-1/2 lg:w-1/3 rounded-lg flex flex-col items-center gap-3 p-10 lg:p-5 xl:p-3 bg-gradient-to-br from-blue-400 to-blue-800 justify-between">
-                        <p className="font-heading text-center text-white">Trade over 100+ cryptocurrencies</p>
+                        <p className="font-heading text-center text-white">
+                            Trade over 100+ cryptocurrencies
+                        </p>
                         <p className="px-6 text-xs py-3 bg-backgroundLighter rounded-full w-min text-nowrap cursor-pointer transition-all hover:bg-cyanDarker">
                             Get Started
                         </p>

@@ -7,7 +7,7 @@ const Footer: React.FC<{}> = () => {
 
     return (
         <div>
-            <div className="w-full h-auto px-10 sm:px-20 md:px-10 lg:px-20 py-10 bg-backgroundLighter flex flex-row gap-5 flex-wrap justify-between">
+            <div className="w-full h-auto px-5 sm:px-20 md:px-10 lg:px-20 py-10 bg-backgroundLighter flex flex-row gap-5 flex-wrap justify-between">
                 <div className="flex flex-col w-full md:w-[calc(100%/3-10px)] lg:w-[calc(100%/3-10px)] h-full justify-between gap-5">
                     <div className="flex items-center flex-row gap-4">
                         <img

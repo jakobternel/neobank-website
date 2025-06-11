@@ -14,7 +14,7 @@ const Features: React.FC<{}> = () => {
                 <h1 className="font-heading text-4xl px-10 text-center">
                     Everything You Need, Nothing You Don't
                 </h1>
-                <div className="flex flex-wrap gap-6 justify-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-10 justify-center">
                     <FeatureCard
                         icon={savings}
                         text="Auto Saving"
