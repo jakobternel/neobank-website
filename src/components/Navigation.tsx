@@ -44,9 +44,8 @@ const Navigation: React.FC<{}> = () => {
     return (
         <div className="z-50 sticky top-0">
             <div
-                className={`${navOpen ? "block" : "hidden"}
+                className={`${navOpen ? "block h-dvh" : "hidden"}
                 sm:block absolute w-screen top-0 left-0 sm:h-auto bg-secondary sm:bg-transparent p-10 sm:p-0`}
-                style={navOpen ? { height: `${viewportHeight}px` } : undefined}
             >
                 <div
                     className={`${
