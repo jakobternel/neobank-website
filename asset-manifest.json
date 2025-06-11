@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/neobank-website/static/css/main.b98c88a1.css",
-    "main.js": "/neobank-website/static/js/main.1e5e54ec.js",
+    "main.css": "/neobank-website/static/css/main.55ec3d3e.css",
+    "main.js": "/neobank-website/static/js/main.9ce6c8df.js",
     "static/media/uicons-thin-rounded-LFWVTX5C.eot": "/neobank-website/static/media/uicons-thin-rounded-LFWVTX5C.113704fe2cffb14600c8.eot",
     "static/media/uicons-regular-rounded-ESQGLQQ4.eot": "/neobank-website/static/media/uicons-regular-rounded-ESQGLQQ4.9ac4298c39b2d61ec7b0.eot",
     "static/media/uicons-bold-rounded-CPL6VNRV.eot": "/neobank-website/static/media/uicons-bold-rounded-CPL6VNRV.81561c67697fc09f050b.eot",
@@ -26,18 +26,23 @@
     "static/media/uicons-regular-straight-2I3O25UC.woff2": "/neobank-website/static/media/uicons-regular-straight-2I3O25UC.875b8c8cb6a2ab6f6075.woff2",
     "static/media/uicons-bold-straight-3JAZKD6K.woff2": "/neobank-website/static/media/uicons-bold-straight-3JAZKD6K.31682537723a048ab69e.woff2",
     "static/media/uicons-solid-straight-4DZ3VA4V.woff2": "/neobank-website/static/media/uicons-solid-straight-4DZ3VA4V.10a42bec98afb83391ab.woff2",
+    "static/media/phone.png": "/neobank-website/static/media/phone.151dc230e70d47b5ef85.png",
     "static/media/mockup.png": "/neobank-website/static/media/mockup.9a52ffc2f56ae4ac6e07.png",
     "static/media/uicons-brands-ZJWE2ELA.eot": "/neobank-website/static/media/uicons-brands-ZJWE2ELA.a6db396393f1097f0bfb.eot",
     "static/media/uicons-brands-PQBQF6T3.woff": "/neobank-website/static/media/uicons-brands-PQBQF6T3.7ab29100c1f05469b972.woff",
     "static/media/uicons-brands-XJPKRNBN.woff2": "/neobank-website/static/media/uicons-brands-XJPKRNBN.033917e9fd41cfa9727c.woff2",
     "static/media/dogecoin.png": "/neobank-website/static/media/dogecoin.3aa00e1ea802cbbb46b7.png",
     "static/media/monero.png": "/neobank-website/static/media/monero.323d228910da968f505c.png",
+    "static/media/apple_black.svg": "/neobank-website/static/media/apple_black.c2d76371a20e6464e60db781cdc93f4e.svg",
+    "static/media/apple_white.svg": "/neobank-website/static/media/apple_white.22e7c5e155ee4d85bf6d29c445d2bedd.svg",
+    "static/media/google_black.svg": "/neobank-website/static/media/google_black.a12f1b509d9f2a3967d350bd2045242f.svg",
+    "static/media/google_white.svg": "/neobank-website/static/media/google_white.bf52be18d8017d90c86aaf29bd3be676.svg",
     "index.html": "/neobank-website/index.html",
-    "main.b98c88a1.css.map": "/neobank-website/static/css/main.b98c88a1.css.map",
-    "main.1e5e54ec.js.map": "/neobank-website/static/js/main.1e5e54ec.js.map"
+    "main.55ec3d3e.css.map": "/neobank-website/static/css/main.55ec3d3e.css.map",
+    "main.9ce6c8df.js.map": "/neobank-website/static/js/main.9ce6c8df.js.map"
   },
   "entrypoints": [
-    "static/css/main.b98c88a1.css",
-    "static/js/main.1e5e54ec.js"
+    "static/css/main.55ec3d3e.css",
+    "static/js/main.9ce6c8df.js"
   ]
 }
