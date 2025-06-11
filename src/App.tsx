@@ -7,6 +7,7 @@ import Saving from "./components/Saving";
 import InternationalBenefits from "./components/InternationalBenefits";
 import Crypto from "./components/Crypto";
 import News from "./components/News";
+import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 
 import { useAppSelector } from "./store/hooks";
@@ -29,6 +30,7 @@ function App() {
                 <InternationalBenefits />
                 <Crypto />
                 <News />
+                <FAQ />
                 <Footer />
             </div>
         </div>
