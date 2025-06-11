@@ -7,6 +7,7 @@ const Navigation: React.FC<{}> = () => {
 
     const [navOpen, setNavOpen] = useState<boolean>(false);
     const [scrolled, setScrolled] = useState<boolean>(false);
+    const [viewportHeight, setViewportHeight] = useState<number>(0);
 
     const dispatch = useAppDispatch();
 
@@ -15,23 +16,46 @@ const Navigation: React.FC<{}> = () => {
             setScrolled(window.scrollY > 50);
         };
 
+        const updateHeight = () => {
+            setViewportHeight(window.innerHeight);
+        };
+
         window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+        window.addEventListener("resize", updateHeight);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", updateHeight);
+        };
     }, []);
+
+    useEffect(() => {
+        navOpen
+            ? document.body.classList.add("overflow-hidden")
+            : document.body.classList.remove("overflow-hidden");
+
+        return () => {
+            document.body.classList.remove("overflow-hidden");
+        };
+    }, [navOpen]);
 
     return (
         <div className="z-50 sticky top-0">
             <div
-                className={`${
-                    navOpen ? "block" : "hidden"
-                } sm:block absolute h-screen w-screen top-0 left-0 sm:h-auto bg-secondary sm:bg-transparent p-10 sm:p-0`}
+                className={`${navOpen ? "block" : "hidden"}
+                ${
+                    navOpen && viewportHeight == 0
+                        ? `h-[${viewportHeight}px]`
+                        : "h-screen"
+                }
+                sm:block absolute w-screen top-0 left-0 sm:h-auto bg-secondary sm:bg-transparent p-10 sm:p-0`}
             >
                 <div
                     className={`${
                         scrolled && !navOpen ? "bg-backgroundLighter" : ""
-                    } transition-all flex flex-col sm:flex-row justify-start sm:justify-between sm:px-10 lg:px-20 sm:py-4 items-start sm:items-center h-full`}
+                    } transition-all flex flex-col sm:flex-row justify-start sm:justify-between sm:px-10 lg:px-8 xl:px-20 sm:py-4 items-start sm:items-center h-full`}
                 >
-                    <div className="w-full sm:w-[20%] md:w-[30%] mb-10 sm:mb-0 sm:justify-start flex flex-row items-center justify-between">
+                    <div className="w-full mb-10 sm:mb-0 sm:justify-start flex flex-row items-center justify-between">
                         <h1 className="font-heading text-4xl sm:text-2xl font-bold">
                             Nomadix
                         </h1>
@@ -52,17 +76,21 @@ const Navigation: React.FC<{}> = () => {
                             ></i>
                         </div>
                     </div>
-                    <div className="w-full sm:w-[60%] md:w-[40%] flex flex-col sm:flex-row gap-5 justify-start sm:justify-center text-xl sm:text-base *:text-muted *:cursor-pointer *:border-b-outline *:border-b-2 *:pb-3 *:sm:pb-0 *:sm:border-none *:transition-all">
-                        <p className="hover:text-main">Features</p>
-                        <p className="hover:text-main">Comparison</p>
-                        <p className="hover:text-main">About Us</p>
+                    <div className="w-full flex flex-col sm:flex-row gap-5 justify-start sm:justify-center text-xl sm:text-base *:text-muted *:cursor-pointer *:border-b-outline *:border-b-2 *:pb-3 *:sm:pb-0 *:sm:border-none *:transition-all">
+                        <p className="hover:text-main text-nowrap">Features</p>
+                        <p className="hover:text-main text-nowrap">
+                            Comparison
+                        </p>
+                        <p className="hover:text-main text-nowrap">About Us</p>
                     </div>
                     <div className="flex-grow"></div>
-                    <div className="w-full sm:w-[20%] md:w-[30%] flex gap-5 flex-col sm:flex-row items-center justify-start sm:justify-end text-xl sm:text-base *:w-full *:sm:w-auto *:text-center *:px-6 *:py-2 *:rounded-xl *:cursor-pointer *:transition-all">
+                    <div className="w-full flex gap-5 flex-col sm:flex-row items-center justify-start sm:justify-end text-xl sm:text-base *:w-full *:sm:w-auto *:text-center *:px-6 *:py-2 *:rounded-xl *:cursor-pointer *:transition-all">
                         <p className="text-muted hover:text-main border-2 border-outline sm:border-none block sm:hidden lg:block">
                             Join Today
                         </p>
-                        <p className="bg-primaryOff hover:bg-primary">Log In</p>
+                        <p className="bg-primaryOff hover:bg-primary block sm:hidden md:block">
+                            Log In
+                        </p>
                         <i
                             onClick={() => {
                                 dispatch(toggleTheme());
