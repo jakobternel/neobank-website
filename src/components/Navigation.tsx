@@ -20,6 +20,8 @@ const Navigation: React.FC<{}> = () => {
             setViewportHeight(window.innerHeight);
         };
 
+        updateHeight();
+
         window.addEventListener("scroll", handleScroll);
         window.addEventListener("resize", updateHeight);
 
@@ -43,12 +45,8 @@ const Navigation: React.FC<{}> = () => {
         <div className="z-50 sticky top-0">
             <div
                 className={`${navOpen ? "block" : "hidden"}
-                ${
-                    navOpen && viewportHeight == 0
-                        ? `h-[${viewportHeight}px]`
-                        : "h-screen"
-                }
                 sm:block absolute w-screen top-0 left-0 sm:h-auto bg-secondary sm:bg-transparent p-10 sm:p-0`}
+                style={navOpen ? { height: `${viewportHeight}px` } : undefined}
             >
                 <div
                     className={`${
