@@ -13,6 +13,7 @@ import Download from "./components/Download";
 import Footer from "./components/Footer";
 
 import { useAppSelector } from "./store/hooks";
+import CardAndRoadmap from "./components/CardAndRoadmap";
 
 function App() {
     const theme = useAppSelector((state) => state.theme.mode);
@@ -32,6 +33,7 @@ function App() {
                 <InternationalBenefits />
                 <Crypto />
                 <News />
+                <CardAndRoadmap />
                 <Reviews />
                 <FAQ />
                 <Download />

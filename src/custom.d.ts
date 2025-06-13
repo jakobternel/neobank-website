@@ -5,3 +5,8 @@ declare module "*.svg" {
         React.SVGProps<SVGSVGElement>
     >;
 }
+
+declare module "*.png" {
+    const value: string;
+    export default value;
+}

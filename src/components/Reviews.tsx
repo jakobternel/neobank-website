@@ -111,7 +111,7 @@ const Reviews: React.FC<{}> = ({}) => {
                 Trusted by a growing community of 650,000+
             </p>
 
-            <div className="relative w-full overflow-hidden md:overflow-visible mt-5">
+            <div className="relative w-full overflow-hidden mt-5">
                 <div
                     className="flex gap-5 transition-transform duration-500 ease-in-out px-[10px]"
                     style={{
@@ -142,7 +142,9 @@ const Reviews: React.FC<{}> = ({}) => {
                     <div
                         key={index}
                         className={`rounded-full w-12 h-2 bg-main cursor-pointer transition-all ${
-                            reviewIndex === index ? "opacity-50" : "opacity-25  hover:opacity-35"
+                            reviewIndex === index
+                                ? "opacity-50"
+                                : "opacity-25 hover:opacity-35"
                         }`}
                         onClick={() => setReviewIndex(index)}
                     />
