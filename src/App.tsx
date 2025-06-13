@@ -7,6 +7,7 @@ import Saving from "./components/Saving";
 import InternationalBenefits from "./components/InternationalBenefits";
 import Crypto from "./components/Crypto";
 import News from "./components/News";
+import Reviews from "./components/Reviews";
 import FAQ from "./components/FAQ";
 import Download from "./components/Download";
 import Footer from "./components/Footer";
@@ -31,6 +32,7 @@ function App() {
                 <InternationalBenefits />
                 <Crypto />
                 <News />
+                <Reviews />
                 <FAQ />
                 <Download />
                 <Footer />
