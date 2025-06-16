@@ -26,7 +26,6 @@
 html,
 body {
     @apply w-full h-full p-0 m-0 transition-all bg-background;
-
 }
 
 .breakpointDev {
@@ -35,6 +34,14 @@ body {
 
 .fi {
     @apply flex;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 [data-theme="light"] {
@@ -83,6 +90,6 @@ body {
     --cyan: #06b6d4;
     --cyanDarker: #059fbb;
 
-    --shadowSolid: rgba(13,27,42,1);
-    --shadowTransparent: rgba(13,27,42,0);
+    --shadowSolid: rgba(13, 27, 42, 1);
+    --shadowTransparent: rgba(13, 27, 42, 0);
 }

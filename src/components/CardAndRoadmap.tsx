@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import Card from "./cardAndRoadmap/Card";
+import Roadmap from "./cardAndRoadmap/Roadmap";
 
 const mapOverlay: string = require("../assets/cardOverlays/map.png");
 const contourOverlay: string = require("../assets/cardOverlays/contour.png");
@@ -22,7 +23,7 @@ const CardAndRoadmap: React.FC<{}> = ({}) => {
     ];
 
     return (
-        <div className="flex gap-5 w-full flex-col md:flex-row px-10 lg:px-20 xl:px-40">
+        <div className="flex gap-5 w-full flex-col md:flex-row px-5 lg:px-20 xl:px-40">
             <div className="flex flex-col gap-3 py-5 w-full md:w-1/2 ">
                 <h1 className="font-heading text-2xl font-semibold">
                     Make It Yours
@@ -33,7 +34,7 @@ const CardAndRoadmap: React.FC<{}> = ({}) => {
                     minimal, or somewhere in between, there's a look that fits
                     you.
                 </p>
-                <div className="flex flex-row gap-5 w-min m-auto mt-5">
+                <div className="flex flex-row gap-5 justify-center mt-5">
                     <div className="flex flex-col gap-2 justify-center">
                         {cardColors.map((color, index) => {
                             return (
@@ -81,10 +82,17 @@ const CardAndRoadmap: React.FC<{}> = ({}) => {
                 </div>
             </div>
             <div className="self-stretch w-[2px] bg-outline"></div>
-            <div className="w-1/2">
-                <h1 className="font-heading text-2xl font-semibold text-right">
+            <div className="w-full md:w-1/2 flex flex-col gap-3 py-5">
+                <h1 className="font-heading text-2xl font-semibold text-left md:text-right">
                     Always Improving
                 </h1>
+                <p className="block md:hidden text-muted text-sm">
+                    We're constantly updating the app to bring you smoother
+                    payments, smarter budgeting, tighter security, and better
+                    ways to grow your money. New tools drop often — so banking
+                    with us only gets better.
+                </p>
+                <Roadmap />
             </div>
         </div>
     );

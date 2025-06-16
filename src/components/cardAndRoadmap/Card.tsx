@@ -13,7 +13,7 @@ const Card: React.FC<{ color: string; design: any }> = ({
     };
 
     return (
-        <div className="w-[20rem] h-[12.61rem] rounded-2xl backdrop-blur-md bg-gray-700">
+        <div className="aspect-[16/10] min-w-[20rem] rounded-2xl backdrop-blur-md bg-gray-700">
             <div
                 className="p-5 flex flex-col border-2 rounded-2xl relative transition-all h-full w-full"
                 style={{
@@ -26,8 +26,8 @@ const Card: React.FC<{ color: string; design: any }> = ({
                     alt="map"
                     className="absolute object-cover top-0 left-0 w-full h-full opacity-15 z-10"
                     style={{
-                    filter: `brightness(0) invert(0)`,
-                }}
+                        filter: `brightness(0) invert(0)`,
+                    }}
                 />
                 <div className="flex flex-row justify-between z-20">
                     <div className="flex flex-row items-center gap-4">
