@@ -33,7 +33,7 @@ body {
 }
 
 .fi {
-    @apply flex;
+    @apply flex items-center;
 }
 
 .scrollbar-hidden::-webkit-scrollbar {

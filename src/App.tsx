@@ -7,13 +7,14 @@ import Saving from "./components/Saving";
 import InternationalBenefits from "./components/InternationalBenefits";
 import Crypto from "./components/Crypto";
 import News from "./components/News";
+import CardAndRoadmap from "./components/CardAndRoadmap";
 import Reviews from "./components/Reviews";
+import Pricing from "./components/Pricing";
 import FAQ from "./components/FAQ";
 import Download from "./components/Download";
 import Footer from "./components/Footer";
 
 import { useAppSelector } from "./store/hooks";
-import CardAndRoadmap from "./components/CardAndRoadmap";
 
 function App() {
     const theme = useAppSelector((state) => state.theme.mode);
@@ -34,6 +35,7 @@ function App() {
                 <Crypto />
                 <News />
                 <CardAndRoadmap />
+                <Pricing />
                 <Reviews />
                 <FAQ />
                 <Download />
