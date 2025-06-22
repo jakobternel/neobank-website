@@ -65,7 +65,7 @@ const Reviews: React.FC<{}> = ({}) => {
     const currentIndex = Math.min(reviewIndex, totalPages - 1);
 
     return (
-        <div className="flex flex-col gap-3 items-center px-[10px] xl:px-40">
+        <div className="flex flex-col gap-3 items-center px-5 md:px-20 xl:px-40">
             <h1 className="font-heading text-4xl font-semibold text-center">
                 Loved by Thousands Worldwide
             </h1>

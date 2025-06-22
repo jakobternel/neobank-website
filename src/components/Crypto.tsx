@@ -146,7 +146,7 @@ const Crypto: React.FC = () => {
                 <h2 className="font-heading text-4xl font-extrabold text-center md:text-left">
                     Seamless Crypto Integration
                 </h2>
-                <p className="text-center md:text-left">
+                <p className="text-center md:text-left text-muted">
                     Easily manage crypto alongside your money. We support
                     popular coins like Bitcoin, Ethereum, and Monero — securely
                     and without extra fees.

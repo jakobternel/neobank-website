@@ -7,7 +7,7 @@ const News: React.FC<{}> = () => {
                 <h1 className="font-heading text-4xl font-semibold">
                     Blog & News
                 </h1>
-                <p>
+                <p className="text-muted">
                     Stay informed with the latest updates from our team,
                     including product improvements, feature rollouts, and
                     insights into the technology shaping our platform. From

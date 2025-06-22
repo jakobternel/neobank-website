@@ -6,10 +6,11 @@ import Features from "./components/Features";
 import Saving from "./components/Saving";
 import InternationalBenefits from "./components/InternationalBenefits";
 import Crypto from "./components/Crypto";
+import OtherBenefits from "./components/OtherBenefits";
 import News from "./components/News";
 import CardAndRoadmap from "./components/CardAndRoadmap";
-import Reviews from "./components/Reviews";
 import Pricing from "./components/Pricing";
+import Reviews from "./components/Reviews";
 import FAQ from "./components/FAQ";
 import Download from "./components/Download";
 import Footer from "./components/Footer";
@@ -33,6 +34,7 @@ function App() {
                 <Saving />
                 <InternationalBenefits />
                 <Crypto />
+                <OtherBenefits />
                 <News />
                 <CardAndRoadmap />
                 <Pricing />

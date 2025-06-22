@@ -27,7 +27,7 @@ const RoadmapItem: React.FC<{
                 </div>
                 <div
                     className={`w-full h-10 overflow-visible ${
-                        rightAlign ? "md:text-right pl-3" : "pr-3"
+                        rightAlign ? "md:text-right md:pl-3" : "md:pr-3"
                     }`}
                 >
                     <p className="text-sm text-muted">{description}</p>

@@ -29,6 +29,20 @@ module.exports = {
                 cyan: "var(--cyan)",
                 cyanDarker: "var(--cyanDarker)",
             },
+            keyframes: {
+                scroll: {
+                    "0%": { transform: "translateX(0%)" },
+                    "100%": { transform: "translateX(-50%)" },
+                },
+                scrollReverse: {
+                    "0%": { transform: "translateX(-50%)" },
+                    "100%": { transform: "translateX(0)" },
+                },
+            },
+            animation: {
+                scroll: "scroll 5s linear infinite",
+                scrollReverse: "scrollReverse 5s linear infinite",
+            },
         },
     },
     plugins: [],
