@@ -1,0 +1,60 @@
+const TextBox: React.FC<{
+    title: string;
+    content: string;
+    icon: string;
+}> = ({ title, content, icon }) => {
+    return (
+        <div className="w-1/4 h-full bg-backgroundLighter border-2 border-outline rounded-lg group overflow-hidden">
+            <div className="h-full w-full flex flex-col gap-3 items-center justify-center relative group-hover:-translate-y-full transition-all ease-in-out">
+                <i className="fi fi-br-info absolute right-3 top-3"></i>
+                <i className={`fi ${icon} p-3 text-xl rounded-md bg-opacity-25 bg-sky-500 text-sky-500`}></i>
+                <p>{title}</p>
+            </div>
+            <div className="h-full w-full group-hover:-translate-y-full transition-all ease-in-out flex items-center justify-center p-5">
+                <p className="text-xs text-muted text-center">{content}</p>
+            </div>
+        </div>
+    );
+};
+
+const Security: React.FC<{}> = ({}) => {
+    return (
+        <div className="w-full border-2 border-outline rounded-xl p-10 flex flex-col gap-10">
+            <div className="w-full flex flex-col gap-5">
+                <h2 className="font-heading text-xl font-semibold">
+                    Security Benefits
+                </h2>
+                <p className="text-sm text-muted">
+                    Security is built into every feature of our app — from
+                    account setup to goal tracking, payments, and beyond. We
+                    protect your information so you can focus on what matters,
+                    with total peace of mind.
+                </p>
+            </div>
+            <div className="w-full h-32 flex justify-between gap-5">
+                <TextBox
+                    title="End-to-End Encryption"
+                    content="All your personal data, preferences, and financial activity are securely encrypted — whether you're browsing, saving, or checking out."
+                    icon="fi-rs-binary-lock"
+                />
+                <TextBox
+                    title="Intelligent Threat Detection"
+                    content="Our systems monitor for unusual activity in real time, flagging anything suspicious and keeping your account safe at all times."
+                    icon="fi-rs-problem-solving"
+                />
+                <TextBox
+                    title="Privacy-First Design"
+                    content="We collect only what's necessary to run the app — and never share or sell your data. Your privacy isn't just a feature; it's a foundation."
+                    icon="fi-rs-user-lock"
+                />
+                <TextBox
+                    title="Biometric Authentication"
+                    content="Biometric login adds a powerful extra layer of protection — ensuring only you can access your account, even if your device is lost or stolen."
+                    icon="fi-rs-face-viewfinder"
+                />
+            </div>
+        </div>
+    );
+};
+
+export default Security;

@@ -4,6 +4,7 @@ import Icon, { IconHandle } from "./shared/Icon";
 import Social from "./otherBenefits/Social";
 import Investing from "./otherBenefits/Investing";
 import Shopping from "./otherBenefits/Shopping";
+import Security from "./otherBenefits/Security";
 
 const social = require("../assets/animatedIcons/friends.json");
 const investments = require("../assets/animatedIcons/share.json");
@@ -37,7 +38,7 @@ const OtherBenefits: React.FC<{}> = ({}) => {
             name: "Security",
             icon: security,
             ref: securityRef,
-            element: <></>,
+            element: <Security />,
         },
     ];
 
