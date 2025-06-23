@@ -86,8 +86,8 @@ const Investing: React.FC<{}> = ({}) => {
     ];
 
     return (
-        <div className="w-full border-2 border-outline rounded-xl p-10 flex gap-10">
-            <div className="w-1/2 flex flex-col gap-5 justify-between">
+        <div className="w-full border-2 border-outline rounded-xl p-5 md:p-10 flex flex-col md:flex-row gap-10">
+            <div className="w-full md:w-1/2 flex flex-col gap-5 justify-between">
                 <div className="flex flex-col gap-5">
                     <h2 className="font-heading text-xl font-semibold">
                         Investing Benefits
@@ -154,7 +154,7 @@ const Investing: React.FC<{}> = ({}) => {
                     </ResponsiveContainer>
                 </div>
             </div>
-            <div className="w-1/2 flex flex-col gap-3 justify-between">
+            <div className="w-full md:w-1/2 flex flex-col gap-3 justify-between">
                 <div className="flex flex-col gap-2 relative">
                     <div
                         className="absolute w-10 h-full -left-1 bottom-0 z-20"

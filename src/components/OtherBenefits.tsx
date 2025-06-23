@@ -43,7 +43,7 @@ const OtherBenefits: React.FC<{}> = ({}) => {
     ];
 
     return (
-        <div className="flex flex-col gap-3 px-40">
+        <div className="flex flex-col gap-3 px-5 sm:px-10 md:px-5 lg:px-20 xl:px-40">
             <h1 className="text-4xl font-bold font-heading text-center">
                 Other Great Benefits
             </h1>
@@ -54,7 +54,7 @@ const OtherBenefits: React.FC<{}> = ({}) => {
                 {sections.map((section, index) => (
                     <div className="relative group" key={index}>
                         <div
-                            className={`w-24 h-24 border-2 border-outline rounded-xl transition-all cursor-pointer flex items-center justify-center group-hover:shadow-lg ${
+                            className={`w-16 md:w-24 h-16 md:h-24 border-2 border-outline rounded-xl transition-all cursor-pointer flex items-center justify-center group-hover:shadow-lg ${
                                 activeBenefitsSection === index
                                     ? "bg-backgroundLight"
                                     : "bg-none hover:bg-backgroundLighter"
@@ -64,9 +64,12 @@ const OtherBenefits: React.FC<{}> = ({}) => {
                         >
                             <Icon icon={section.icon} ref={section.ref} />
                         </div>
-                        <div className="absolute px-3 py-1 rounded-full border-2 border-outline top-32 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-backgroundLighter group-hover:top-28 transition-all duration-200 pointer-events-none group-hover:shadow-lg">
-                            <p className="text-sm whitespace-nowrap">
-                                {section.name} Benefits
+                        <div className="absolute px-3 py-1 rounded-full border-2 border-outline top-24 md:top-32 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-backgroundLighter group-hover:top-20 md:group-hover:top-28 transition-all duration-200 pointer-events-none group-hover:shadow-lg">
+                            <p className="text-sm whitespace-nowrap flex gap-1">
+                                <span>{section.name}</span>
+                                <span className="hidden md:inline">
+                                    Benefits
+                                </span>
                             </p>
                         </div>
                     </div>

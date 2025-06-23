@@ -1,11 +1,11 @@
 const Shopping: React.FC<{}> = ({}) => {
     return (
-        <div className="w-full border-2 border-outline rounded-xl p-10 flex gap-10">
+        <div className="w-full border-2 border-outline rounded-xl p-5 md:p-10 flex gap-10">
             <div className="w-full flex flex-col gap-5">
                 <h2 className="font-heading text-xl font-semibold">
                     Shopping Benefits
                 </h2>
-                <div className="flex items-center">
+                <div className="hidden md:flex flex-row items-center">
                     <div className="w-4 h-4 rounded-full bg-cyan"></div>
                     <div className="flex-grow bg-cyanDarker h-1"></div>
                     <div className="w-4 h-4 rounded-full bg-cyan"></div>
@@ -16,8 +16,8 @@ const Shopping: React.FC<{}> = ({}) => {
                     </div>
                     <div className="w-4 h-4 rounded-full border-2 border-cyan"></div>
                 </div>
-                <div className="flex gap-10">
-                    <div className="w-1/3 flex flex-col gap-3">
+                <div className="flex flex-col md:flex-row gap-5 md:gap-10">
+                    <div className="w-full md:w-1/3 flex flex-col gap-3">
                         <h3 className="font-heading">Save with Goals</h3>
                         <p className="text-xs text-muted">
                             Plan your purchases by setting saving goals for
@@ -28,7 +28,7 @@ const Shopping: React.FC<{}> = ({}) => {
                         <div className="flex-grow"></div>
                         <div className="w-full h-32 bg-backgroundLighter rounded-lg border-2 border-outline"></div>
                     </div>
-                    <div className="w-1/3 flex flex-col gap-3 text-center">
+                    <div className="w-full md:w-1/3 flex flex-col gap-3 md:text-center">
                         <h3 className="font-heading">
                             Automatic Price Tracking
                         </h3>
@@ -41,7 +41,7 @@ const Shopping: React.FC<{}> = ({}) => {
                         <div className="flex-grow"></div>
                         <div className="w-full h-32 bg-backgroundLighter rounded-lg border-2 border-outline"></div>
                     </div>
-                    <div className="w-1/3 flex flex-col gap-3 text-right">
+                    <div className="w-full md:w-1/3 flex flex-col gap-3 md:text-right">
                         <h3 className="font-heading">Fast & Secure Checkout</h3>
                         <p className="text-xs text-muted">
                             Enjoy peace of mind with encrypted payments and
