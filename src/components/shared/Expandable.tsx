@@ -24,12 +24,12 @@ const Expandable: React.FC<{ title: string; content: string }> = ({
                 setExpanded((prev) => !prev);
             }}
         >
-            <div className="flex justify-between align-middle">
+            <div className="flex justify-between items-start">
                 <p>{title}</p>
                 <i
                     className={`fi ${
                         !expanded ? "fi-br-plus" : "fi-br-minus"
-                    } self-center pl-3`}
+                    } pl-3 h-[24px]`}
                 ></i>
             </div>
             <p

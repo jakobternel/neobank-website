@@ -16,8 +16,7 @@ const Saving: React.FC<{}> = ({}) => {
                             Set it and forget it. We round up your purchases or
                             schedule recurring deposits to help you build your
                             savings without lifting a finger. It's saving that
-                            happens in the background — so you can focus on
-                            living.
+                            happens in the background.
                         </p>
                     </div>
                     <div className="w-4/5 sm:w-1/2 md:w-2/5 h-32 border-2 border-outline rounded-2xl bg-secondary"></div>
