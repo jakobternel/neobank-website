@@ -34,8 +34,8 @@ const CardAndRoadmap: React.FC<{}> = ({}) => {
                     minimal, or somewhere in between, there's a look that fits
                     you.
                 </p>
-                <div className="flex flex-row gap-5 justify-center mt-5">
-                    <div className="flex flex-col gap-2 justify-center">
+                <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mt-5">
+                    <div className="order-2 sm:order-1 flex flex-row sm:flex-col gap-2 justify-center">
                         {cardColors.map((color, index) => {
                             return (
                                 <div
@@ -54,11 +54,13 @@ const CardAndRoadmap: React.FC<{}> = ({}) => {
                             <p className="text-xs">+8</p>
                         </div>
                     </div>
-                    <Card
-                        color={cardColors[selectedColor]}
-                        design={selectedDesign}
-                    />
-                    <div className="flex flex-col gap-2 justify-center">
+                    <div className="order-1 sm:order-2 h-min w-min overflow-hidden flex justify-center items-center">
+                        <Card
+                            color={cardColors[selectedColor]}
+                            design={selectedDesign}
+                        />
+                    </div>
+                    <div className="order-3 flex flex-row sm:flex-col gap-2 justify-center">
                         {Object.values(cardDesigns).map((cardDesign, index) => {
                             return (
                                 <div

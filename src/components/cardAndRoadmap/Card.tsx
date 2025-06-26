@@ -13,7 +13,7 @@ const Card: React.FC<{ color: string; design: any }> = ({
     };
 
     return (
-        <div className="aspect-[16/10] min-w-[20rem] rounded-2xl backdrop-blur-md bg-gray-700">
+        <div className="aspect-[16/10] min-w-[20rem] rounded-2xl backdrop-blur-md bg-gray-700 scale-100 md:scale-[75%] lg:scale-100">
             <div
                 className="p-5 flex flex-col border-2 rounded-2xl relative transition-all h-full w-full"
                 style={{
