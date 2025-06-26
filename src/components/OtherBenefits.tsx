@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Icon, { IconHandle } from "./shared/Icon";
 
 import Social from "./otherBenefits/Social";
@@ -14,6 +14,15 @@ const security = require("../assets/animatedIcons/lock.json");
 const OtherBenefits: React.FC<{}> = ({}) => {
     const [activeBenefitsSection, setActiveBenefitsSection] =
         useState<number>(0);
+    const [isMobile, setIsMobile] = useState(
+        typeof window !== "undefined" ? window.innerWidth < 768 : true
+    );
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const socialRef = useRef<IconHandle>(null);
     const investmentsRef = useRef<IconHandle>(null);
@@ -62,7 +71,11 @@ const OtherBenefits: React.FC<{}> = ({}) => {
                             onMouseEnter={() => section.ref.current?.play()}
                             onClick={() => setActiveBenefitsSection(index)}
                         >
-                            <Icon icon={section.icon} ref={section.ref} />
+                            <Icon
+                                icon={section.icon}
+                                ref={section.ref}
+                                size={isMobile ? 35 : undefined}
+                            />
                         </div>
                         <div className="absolute px-3 py-1 rounded-full border-2 border-outline top-24 md:top-32 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-backgroundLighter group-hover:top-20 md:group-hover:top-28 transition-all duration-200 pointer-events-none group-hover:shadow-lg">
                             <p className="text-sm whitespace-nowrap flex gap-1">
