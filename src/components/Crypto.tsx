@@ -142,7 +142,7 @@ const Crypto: React.FC = () => {
                     />
                 </div>
             </div>
-            <div className="w-full md:w-7/12 lg:w-1/2 md:pl-0 md:pr-20 md:py-10 px-10 md:px-0 flex flex-col gap-5 justify-center">
+            <div className="w-full md:w-7/12 lg:w-1/2 md:pl-0 md:pr-20 md:py-10 px-5 md:px-0 flex flex-col gap-5 justify-center">
                 <h2 className="font-heading text-4xl font-extrabold text-center md:text-left">
                     Seamless Crypto Integration
                 </h2>

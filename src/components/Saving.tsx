@@ -1,6 +1,6 @@
 const Saving: React.FC<{}> = ({}) => {
     return (
-        <div className="flex flex-col gap-8 sm:gap-16 items-center px-10 lg:px-32 xl:px-48">
+        <div className="flex flex-col gap-8 sm:gap-16 items-center px-5 lg:px-32 xl:px-48">
             <h1 className="font-heading text-center text-4xl font-semibold">
                 Built to{" "}
                 <span className="px-3 py-1 rounded-xl bg-pink">Boost</span> Your
