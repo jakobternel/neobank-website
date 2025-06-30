@@ -1,4 +1,4 @@
-<h1 align="center">💰 Nomadix - Digital Banking Platformm 💰</h1>
+<h1 align="center">💰 Nomadix - Digital Banking Platform 💰</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/React-61dbfb" alt="React"/>
@@ -20,9 +20,9 @@ As my second project using Tailwind CSS, I aimed to advance my skills in respons
 ## ✨ Features
 - Mobile-first and fully responsive design
 - Microinteractions and animations
-- In-progress: Light & dark mode design
-- In-progress: 3D globe animation
-- In-progress: Dynamic bank card generator
+- Light & dark mode design
+- 3D globe animation
+- Dynamic bank card generator
 
 ## 📸 Screenshots
 
