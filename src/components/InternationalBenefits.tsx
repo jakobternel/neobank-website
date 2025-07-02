@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import GlobeModel from "./internationalBenefits/Globe";
 
 const InternationalBenefitItem: React.FC<{
@@ -5,7 +6,7 @@ const InternationalBenefitItem: React.FC<{
     description: string;
 }> = ({ title, description }) => {
     return (
-        <div className="flex flex-col gap-2 max-w-72">
+        <div className="flex flex-col gap-2">
             <h2 className="text-xl font-heading font-semibold">{title}</h2>
             <p className="text-sm text-darker">{description}</p>
             <span>
@@ -18,10 +19,29 @@ const InternationalBenefitItem: React.FC<{
 };
 
 const InternationalBenefits: React.FC = () => {
+    const [globeSize, setGlobeSize] = useState<number>(600);
+
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        const observer = new ResizeObserver(([entry]) => {
+            const width = entry.contentRect.width;
+            const height = entry.contentRect.height;
+
+            setGlobeSize(Math.min(width, height));
+        });
+
+        observer.observe(container);
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <div className="w-full flex flex-col md:flex-row sm:gap-10 md:gap-12 xl:gap-20 justify-between">
-            <div className="w-full sm:w-4/5 md:w-2/5 flex flex-col gap-10">
-                <div className="bg-limeDarker sm:rounded-r-3xl self-stretch px-10 sm:pl-20 md:pl-12 lg:pl-16 xl:pl-20 sm:pr-10 py-10 flex flex-col justify-between gap-6 *:!text-black">
+        <div className="w-full flex flex-col lg:flex-row justify-between gap-10">
+            <div className="w-full lg:w-1/2 flex flex-col gap-10">
+                <div className="bg-limeDarker lg:rounded-r-3xl self-stretch py-10 flex flex-col justify-between gap-6 *:!text-black pr-5 sm:pr-10 md:pr-20 lg:pr-10 pl-5 sm:pl-10 md:pl-20 lg:pl-16 xl:pl-20">
                     <h1 className="font-heading text-4xl font-extrabold">
                         Made For The Modern Traveller
                     </h1>
@@ -32,7 +52,11 @@ const InternationalBenefits: React.FC = () => {
                         wherever you go.
                     </p>
                 </div>
-                <div className="md:self-stretch self-end px-10 sm:pr-0 sm:pl-20 md:pl-12 lg:pl-16 xl:pl-20 grid grid-rows-2 grid-cols-2 gap-5">
+                <div
+                    className="md:self-stretch grid grid-rows-2 grid-cols-2 gap-5
+                    pr-5 sm:pr-10 md:pr-20 lg:pr-10 pl-5 sm:pl-10 md:pl-20 lg:pl-16 xl:pl-20
+                "
+                >
                     <InternationalBenefitItem
                         title="Worldwide ATM Network"
                         description="Access cash globally with no ATM withdrawal fees anytime, anywhere"
@@ -51,8 +75,13 @@ const InternationalBenefits: React.FC = () => {
                     />
                 </div>
             </div>
-            <div className="w-full md:w-1/2">
-                <GlobeModel />
+            <div className="w-full lg:w-1/2">
+                <div
+                    className="w-full h-full flex justify-center"
+                    ref={containerRef}
+                >
+                    <GlobeModel size={globeSize} />
+                </div>
             </div>
         </div>
     );

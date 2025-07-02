@@ -22,7 +22,7 @@ interface ITransactionRing {
     radius: number;
 }
 
-const GlobeModel: React.FC = ({}) => {
+const GlobeModel: React.FC<{ size: number }> = ({ size }) => {
     const [countries, setCountries] = useState<
         FeatureCollection<Geometry, GeoJsonProperties>
     >({ type: "FeatureCollection", features: [] });
@@ -117,7 +117,8 @@ const GlobeModel: React.FC = ({}) => {
         setTransactionArcs(arcs);
     }, []);
 
-    const colorInterpolator = (t: number) => `rgba(56, 189, 248, ${Math.sqrt(1-t)})`;
+    const colorInterpolator = (t: number) =>
+        `rgba(56, 189, 248, ${Math.sqrt(1 - t)})`;
 
     return (
         <Globe
@@ -129,8 +130,8 @@ const GlobeModel: React.FC = ({}) => {
             polygonAltitude={0.005}
             backgroundColor="rgba(0,0,0,0)"
             showAtmosphere={true}
-            width={600}
-            height={600}
+            width={size}
+            height={size}
             globeMaterial={new THREE.MeshStandardMaterial({ color: "#0F1D45" })}
             hexPolygonsData={countries.features}
             hexPolygonResolution={3}
@@ -144,13 +145,10 @@ const GlobeModel: React.FC = ({}) => {
             arcDashInitialGap={(d) => (d as ITransactionArc).initialGap}
             arcDashAnimateTime={2000}
             arcAltitude={(arc) => {
-                const { startLat, endLat, startLng, endLng } = arc as ITransactionArc;
-                const dx =
-                    endLat -
-                    startLat;
-                const dy =
-                    endLng -
-                    startLng;
+                const { startLat, endLat, startLng, endLng } =
+                    arc as ITransactionArc;
+                const dx = endLat - startLat;
+                const dy = endLng - startLng;
                 const distance = Math.hypot(dx, dy);
 
                 const minAlt = 0.05;
