@@ -181,7 +181,7 @@ const Investing: React.FC<{}> = ({}) => {
                     ></div>
                 </div>
                 <div className="w-full h-min grid grid-cols-2 grid-rows-2 gap-3">
-                    <div className="col-span-2 bg-backgroundLight rounded-lg flex p-5">
+                    <div className="col-span-2 bg-backgroundLight rounded-lg flex py-5 md:p-5">
                         <div className="w-1/3 h-full flex flex-col gap-3 items-center justify-center">
                             <i className="fi fi-rr-growth-chart-invest p-3 text-xl rounded-md bg-opacity-25 bg-fuchsia-500 text-fuchsia-500"></i>
                             <p className="font-heading text-xl font-bold">
@@ -202,7 +202,7 @@ const Investing: React.FC<{}> = ({}) => {
                         </div>
                     </div>
                     <div className="h-full bg-backgroundLight rounded-lg flex flex-col justify-center items-center gap-2 p-3 py-5">
-                        <p className="font-heading text-3xl font-bold text-primary">
+                        <p className="font-heading text-2xl md:text-3xl font-bold text-primary">
                             400,000+
                         </p>
                         <p className="text-xs text-center text-darker">
@@ -212,7 +212,7 @@ const Investing: React.FC<{}> = ({}) => {
                         </p>
                     </div>
                     <div className="h-full bg-backgroundLight rounded-lg flex flex-col justify-center items-center gap-2 px-3 py-5">
-                        <p className="font-heading text-3xl font-bold text-primary">
+                        <p className="font-heading text-2xl md:text-3xl font-bold text-primary">
                             $0
                         </p>
                         <p className="text-xs text-center text-darker">
