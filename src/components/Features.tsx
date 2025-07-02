@@ -9,7 +9,7 @@ const security = require("../assets/animatedIcons/security.json");
 
 const Features: React.FC<{}> = () => {
     return (
-        <div className="w-full h-full -mt-20">
+        <div className="w-full h-full -mt:-10 sm:-mt-20">
             <div className="flex h-full flex-col gap-12 items-center justify-around">
                 <h1 className="font-heading text-4xl px-10 text-center">
                     Everything You Need, Nothing You Don't

@@ -28,7 +28,7 @@ function App() {
         <div>
             {/*  className="breakpointDev" */}
             <Navigation />
-            <div className="flex flex-col gap-32">
+            <div className="flex flex-col gap-16 sm:gap-20 md:gap-24 lg:gap-28 xl:gap-32">
                 <Hero />
                 <Features />
                 <Saving />
