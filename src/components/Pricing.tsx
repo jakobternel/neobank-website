@@ -121,7 +121,7 @@ const Pricing: React.FC<{}> = ({}) => {
                         </div>
                     </div>
                     <div className="flex-grow"></div>
-                    <div className="rounded-full flex justify-between bg-primary py-2 px-4 mt-4 cursor-pointer hover:bg-primaryOff transition-all">
+                    <div className="rounded-full flex justify-between bg-primaryOff py-2 px-4 mt-4 cursor-pointer hover:bg-primary transition-all">
                         <p className="font-heading text-sm">
                             Upgrade to Explorer
                         </p>

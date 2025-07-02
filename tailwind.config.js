@@ -11,9 +11,8 @@ module.exports = {
                 background: "var(--background)",
                 backgroundLighter: "var(--backgroundLighter)",
                 backgroundLight: "var(--backgroundLight)",
-
-                secondary: "var(--secondary)",
                 outline: "var(--outline)",
+                secondary: "var(--secondary)",
 
                 primary: "var(--primary)",
                 primaryOff: "var(--primaryOff)",
@@ -22,12 +21,12 @@ module.exports = {
                 darker: "var(--darker)",
                 muted: "var(--muted)",
 
-                lime: "var(--lime)",
-                limeDarker: "var(--limeDarker)",
-                pink: "var(--pink)",
-                pinkDarker: "var(--pinkDarker)",
-                cyan: "var(--cyan)",
-                cyanDarker: "var(--cyanDarker)",
+                lime: "#a3e635",
+                limeDarker: "#92cf30",
+                pink: "#f472b6",
+                pinkDarker: "#dc66a3",
+                cyan: "#06b6d4",
+                cyanDarker: "#059fbb",
             },
             keyframes: {
                 scroll: {

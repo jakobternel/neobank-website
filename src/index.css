@@ -46,24 +46,17 @@ body {
 
 [data-theme="light"] {
     --background: #f1f5f9;
-    --secondary: #e2e8f0;
-    --backgroundLighter: #ffffff;
-    --backgroundLight: #f8fafc;
-    --outline: #cbd5e1;
+    --backgroundLighter: #f8fafc;
+    --backgroundLight: #e8edf2;
+    --outline: #b0c2d9;
+    --secondary: #d4dce6;
 
     --primary: #60a5fa;
     --primaryOff: #3b82f6;
 
     --main: #0d1b2a;
-    --darker: #1e293b;
-    --muted: #475569;
-
-    --lime: #a3e635;
-    --limeDarker: #92cf30;
-    --pink: #f472b6;
-    --pinkDarker: #dc66a3;
-    --cyan: #06b6d4;
-    --cyanDarker: #059fbb;
+    --darker: #334155;
+    --muted: #64748b;
 
     --shadowSolid: rgba(241, 245, 249, 1);
     --shadowTransparent: rgba(241, 245, 249, 0);
@@ -83,13 +76,6 @@ body {
     --darker: #cbd5e1;
     --muted: #94a3b8;
 
-    --lime: #a3e635;
-    --limeDarker: #92cf30;
-    --pink: #f472b6;
-    --pinkDarker: #dc66a3;
-    --cyan: #06b6d4;
-    --cyanDarker: #059fbb;
-
-    --shadowSolid: rgba(13, 27, 42, 1);
-    --shadowTransparent: rgba(13, 27, 42, 0);
+    --shadowSolid: rgba(11, 23, 36, 1);
+    --shadowTransparent: rgba(11, 23, 36, 0);
 }
