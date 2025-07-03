@@ -1,3 +1,5 @@
+// GeoJson file containing world data
+
 const worldData = {
     type: "FeatureCollection",
     features: [

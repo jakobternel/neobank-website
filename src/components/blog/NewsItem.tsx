@@ -1,3 +1,10 @@
+/**
+ * Component for rendering news item to be used in News element
+ *
+ * @param title Title to be displayed on news article
+ * @param content Text content to be displayed on news article
+ * @param image Image to be displayed on news article
+ */
 const NewsItem: React.FC<{ title: string; content: string; image: string }> = ({
     title,
     content,
@@ -9,7 +16,7 @@ const NewsItem: React.FC<{ title: string; content: string; image: string }> = ({
                 <img
                     className="rounded-lg w-full h-full object-cover"
                     src={image}
-                    alt="image"
+                    alt={title}
                 />
             </div>
             <div className="flex flex-col gap-1 py-2 pr-2 w-2/3">

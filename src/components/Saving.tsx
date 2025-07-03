@@ -1,4 +1,7 @@
-const Saving: React.FC<{}> = ({}) => {
+/**
+ * Element for containing information about saving benefits
+ */
+const Saving: React.FC = () => {
     return (
         <div className="flex flex-col gap-8 sm:gap-16 items-center px-5 lg:px-32 xl:px-48">
             <h1 className="font-heading text-center text-4xl font-semibold">

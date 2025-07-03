@@ -1,4 +1,7 @@
-const Social: React.FC<{}> = ({}) => {
+/**
+ * Social benefits component to be used in OtherBenefits element and shown on button click
+ */
+const Social: React.FC = () => {
     return (
         <div className="w-full border-2 border-outline rounded-xl p-5 md:p-10 flex flex-col md:flex-row gap-10">
             <div className="w-full md:w-1/2 flex flex-col gap-5">

@@ -1,3 +1,5 @@
+// City coordinates to be displayed on interactive globe for transactions
+
 const cityCoordinates: [number, number][] = [
     [35.6895, 139.6917],
     [34.6937, 135.5023],

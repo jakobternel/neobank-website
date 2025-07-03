@@ -2,10 +2,17 @@ import hexRgb from "hex-rgb";
 
 const icon = require("../../assets/logo_white.png");
 
-const Card: React.FC<{ color: string; design: any }> = ({
+/**
+ * Custom bank card generator
+ *
+ * @param color User-selected colour in HEX format
+ * @param design Source of background image file selected by user
+ */
+const Card: React.FC<{ color: string; design: string }> = ({
     color,
     design,
 }) => {
+    // Convert HEX colour input to RGBA to allow transparency to be applied to card colour overlay
     const hexToRgb = (input: string, alpha?: number): string => {
         const rgb = hexRgb(input);
 
@@ -17,14 +24,14 @@ const Card: React.FC<{ color: string; design: any }> = ({
             <div
                 className="p-5 flex flex-col border-2 rounded-2xl relative transition-all h-full w-full"
                 style={{
-                    backgroundColor: hexToRgb(color, 0.5),
-                    borderColor: hexToRgb(color, 1),
+                    backgroundColor: hexToRgb(color, 0.5), // Allow backgroundColor to be updated if color prop changes
+                    borderColor: hexToRgb(color, 1), // Allow borderColor to be updated if color prop changes
                 }}
             >
                 <img
                     src={design}
                     alt="map"
-                    className="absolute object-cover top-0 left-0 w-full h-full opacity-15 z-10"
+                    className="absolute object-cover rounded-2xl top-0 left-0 w-full h-full opacity-15 z-10"
                     style={{
                         filter: `brightness(0) invert(0)`,
                     }}

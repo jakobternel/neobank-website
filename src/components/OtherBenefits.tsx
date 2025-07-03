@@ -1,35 +1,48 @@
-import { useEffect, useRef, useState } from "react";
+import { JSX, useEffect, useRef, useState } from "react";
 import Icon, { IconHandle } from "./shared/Icon";
 
+// Import information components to be changed based on user input
 import Social from "./otherBenefits/Social";
 import Investing from "./otherBenefits/Investing";
 import Shopping from "./otherBenefits/Shopping";
 import Security from "./otherBenefits/Security";
 
+// Import animated icons
 const social = require("../assets/animatedIcons/friends.json");
 const investments = require("../assets/animatedIcons/share.json");
 const shopping = require("../assets/animatedIcons/basket.json");
 const security = require("../assets/animatedIcons/lock.json");
 
-const OtherBenefits: React.FC<{}> = ({}) => {
+/**
+ * Element for containing additional benefits of the platform. Displays buttons which toggle the information shown to the user for social, investment, shopping, and security benefits
+ */
+const OtherBenefits: React.FC = () => {
     const [activeBenefitsSection, setActiveBenefitsSection] =
-        useState<number>(0);
+        useState<number>(0); // Currently selected benefits to be shown. Defaults to 0 for social benefits
     const [isMobile, setIsMobile] = useState(
         typeof window !== "undefined" ? window.innerWidth < 768 : true
-    );
+    ); // Uses the width of the window to determine if the user is browsing on phone. Used for the dynamic sizing of animated icons which default to size 50 if no value entered
 
+    // Event listener for window resizing
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth < 768);
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    // Refs for handling icon animation
     const socialRef = useRef<IconHandle>(null);
     const investmentsRef = useRef<IconHandle>(null);
     const shoppingRef = useRef<IconHandle>(null);
     const securityRef = useRef<IconHandle>(null);
 
-    const sections = [
+    // Additional benefits sections which can be selected by user
+    const sections: {
+        name: string;
+        icon: string;
+        ref: React.RefObject<IconHandle | null>;
+        element: JSX.Element;
+    }[] = [
         { name: "Social", icon: social, ref: socialRef, element: <Social /> },
         {
             name: "Investing",
@@ -60,6 +73,7 @@ const OtherBenefits: React.FC<{}> = ({}) => {
                 Learn more about what else Nomadix has to offer
             </p>
             <div className="flex gap-5 justify-center mt-8">
+                {/* Create button for each section */}
                 {sections.map((section, index) => (
                     <div className="relative group" key={index}>
                         <div
@@ -68,8 +82,8 @@ const OtherBenefits: React.FC<{}> = ({}) => {
                                     ? "bg-backgroundLight"
                                     : "bg-none hover:bg-backgroundLighter"
                             }`}
-                            onMouseEnter={() => section.ref.current?.play()}
-                            onClick={() => setActiveBenefitsSection(index)}
+                            onMouseEnter={() => section.ref.current?.play()} // Play icon animation on hover
+                            onClick={() => setActiveBenefitsSection(index)} // Change active section state to show relevant component for clicked button
                         >
                             <Icon
                                 icon={section.icon}
@@ -77,6 +91,7 @@ const OtherBenefits: React.FC<{}> = ({}) => {
                                 size={isMobile ? 35 : undefined}
                             />
                         </div>
+                        {/* Additional text to show when button hovered over */}
                         <div className="absolute px-3 py-1 rounded-full border-2 border-outline top-24 md:top-32 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-backgroundLighter group-hover:top-20 md:group-hover:top-28 transition-all duration-200 pointer-events-none group-hover:shadow-lg">
                             <p className="text-sm whitespace-nowrap flex gap-1">
                                 <span>{section.name}</span>
@@ -89,6 +104,7 @@ const OtherBenefits: React.FC<{}> = ({}) => {
                 ))}
             </div>
             <div className="mt-[3.5rem] relative w-full">
+                {/* Render benefit components. Div also handles the animation when changed by user */}
                 {sections.map((section, index) => (
                     <div
                         key={index}

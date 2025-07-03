@@ -16,17 +16,18 @@ import Download from "./components/Download";
 import Footer from "./components/Footer";
 
 import { useAppSelector } from "./store/hooks";
+import { ThemeMode } from "./store/slices/theme";
 
 function App() {
-    const theme = useAppSelector((state) => state.theme.mode);
+    const theme: ThemeMode = useAppSelector((state) => state.theme.mode); // Get user selected theme from Redux state
 
+    // Set data-theme on document to be the user selected theme. This allows CSS (data-theme="dark") to handle theme dynamically.
     useEffect(() => {
         document.documentElement.setAttribute("data-theme", theme);
     }, [theme]);
 
     return (
         <div>
-            {/*  className="breakpointDev" */}
             <Navigation />
             <div className="flex flex-col gap-16 sm:gap-20 md:gap-24 lg:gap-28 xl:gap-32">
                 <Hero />

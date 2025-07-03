@@ -1,16 +1,22 @@
+import { cryptocurrencies, ICrypto } from "../static/cryptocurrencies";
 import { useAppSelector } from "../store/hooks";
+import { ThemeMode } from "../store/slices/theme";
 
 const mockup = require("../assets/mockup.png");
-const bitcoin = require("../assets/cryptoIcons/bitcoin.png");
-const dogecoin = require("../assets/cryptoIcons/dogecoin.png");
-const ethereum = require("../assets/cryptoIcons/ethereum.png");
-const monero = require("../assets/cryptoIcons/monero.png");
 
-const CryptoInfo: React.FC<{ icon: any; name: string; theme: string }> = ({
-    icon,
-    name,
-    theme,
-}) => {
+/**
+ * Component for the display of cryptocurrency information. Contains icon/logo of token, name and generates random daily percentage change
+ *
+ * @param icon Source of the cryptocurrency icon to be displayed. Ensure icon is black to display properly on default light theme
+ * @param name Name/ticker of the cryptocurrency
+ * @param theme Current theme of the application from Redux state
+ */
+const CryptoInfo: React.FC<{
+    icon: string;
+    name: string;
+    theme: ThemeMode;
+}> = ({ icon, name, theme }) => {
+    // Generate random percentage change to be displayed underneath cryptocurrency name. Generates between -3 and +3
     function randomDecimal(): string {
         const num = (Math.random() * 6 - 3).toFixed(2);
         return (parseFloat(num) >= 0 ? "+" : "") + num;
@@ -23,6 +29,7 @@ const CryptoInfo: React.FC<{ icon: any; name: string; theme: string }> = ({
                 src={icon}
                 alt={name}
                 className="h-8 w-8"
+                // Invert the colour of the cryptocurrency icon based on the current theme
                 style={{
                     filter: `brightness(0) invert(${
                         theme === "dark" ? "1" : "0"
@@ -32,6 +39,7 @@ const CryptoInfo: React.FC<{ icon: any; name: string; theme: string }> = ({
             <div className="flex flex-col">
                 <p className="font-heading font-normal">{name}</p>
                 <p
+                    // Change color of daily percentage change based on if it is a positive or negative value
                     className={`text-xs ${
                         parseFloat(change) < 0
                             ? "text-red-500"
@@ -45,18 +53,29 @@ const CryptoInfo: React.FC<{ icon: any; name: string; theme: string }> = ({
     );
 };
 
+/**
+ * Component for displaying hovering cryptocurrency icon
+ *
+ * @param icon Source of the cryptocurrency icon to be displayed. Ensure icon is black to display properly on default light theme
+ * @param offsetX Horizontal offset from centre of parent element in %
+ * @param offsetY Vertical offset from centre of parent element in %
+ * @param cryptoName Name of crypto to be used as alt in img tag
+ * @param theme Current theme of the application from Redux state
+ * @param delay Delay of start of hovering animation in ms
+ */
 const CryptoIcon: React.FC<{
-    icon: any;
+    icon: string;
     offsetX: number;
     offsetY: number;
     cryptoName: string;
-    theme: any;
+    theme: ThemeMode;
     delay: number;
 }> = ({ icon, offsetX, offsetY, cryptoName, theme, delay }) => {
     return (
         <div
             className="absolute w-[13%] h-[13%] top-1/2 left-1/2 z-40"
             style={{
+                // Offset position of cryptocurrency icon
                 transform: `translate(calc(-50% + ${offsetX}%), calc(-50% + ${offsetY}%))`,
             }}
         >
@@ -65,7 +84,9 @@ const CryptoIcon: React.FC<{
                 alt={cryptoName}
                 className={`w-full h-full border-black border-2 p-[10%] rounded-full animate-bounce`}
                 style={{
+                    // Delay start of hovering animation
                     animationDelay: `${delay}ms`,
+                    // Invert colour if theme is set to dark
                     filter: `brightness(0) invert(${
                         theme === "dark" ? "1" : "0"
                     })`,
@@ -75,46 +96,33 @@ const CryptoIcon: React.FC<{
     );
 };
 
+/**
+ * Element for displaying cryptocurrency investing benefits
+ */
 const Crypto: React.FC = () => {
-    const theme = useAppSelector((state) => state.theme.mode);
+    const theme: ThemeMode = useAppSelector((state) => state.theme.mode); // Get current user theme from Redux state
 
     return (
         <div className="w-full flex flex-col md:flex-row gap-10 md:gap-0">
             <div className="w-full md:w-5/12 lg:w-1/2 px-16 sm:px-36 md:px-12 lg:px-16 xl:px-20">
                 <div className="aspect-square relative w-full h-full">
                     <div className="absolute inset-0">
-                        <CryptoIcon
-                            offsetX={-200}
-                            offsetY={-150}
-                            icon={bitcoin}
-                            cryptoName="bitcoin"
-                            theme={theme}
-                            delay={0}
-                        />
-                        <CryptoIcon
-                            offsetX={200}
-                            offsetY={-150}
-                            icon={monero}
-                            cryptoName="monero"
-                            theme={theme}
-                            delay={250}
-                        />
-                        <CryptoIcon
-                            offsetX={-75}
-                            offsetY={-250}
-                            icon={dogecoin}
-                            cryptoName="dogecoin"
-                            theme={theme}
-                            delay={500}
-                        />
-                        <CryptoIcon
-                            offsetX={75}
-                            offsetY={-250}
-                            icon={ethereum}
-                            cryptoName="ethereum"
-                            theme={theme}
-                            delay={750}
-                        />
+                        {/* Return CryptoIcon component for each element in cryptocurrencies array */}
+                        {cryptocurrencies.map(
+                            (crypto: ICrypto, index: number) => {
+                                return (
+                                    <CryptoIcon
+                                        key={index}
+                                        offsetX={crypto.offsetX}
+                                        offsetY={crypto.offsetY}
+                                        icon={crypto.icon}
+                                        cryptoName={crypto.cryptoName}
+                                        theme={theme}
+                                        delay={crypto.delay}
+                                    />
+                                );
+                            }
+                        )}
                     </div>
 
                     <div className="absolute inset-0">
@@ -161,22 +169,19 @@ const Crypto: React.FC = () => {
                         </p>
                     </div>
                     <div className="w-1/2 lg:w-2/3 rounded-lg flex flex-wrap gap-3">
-                        <CryptoInfo
-                            icon={bitcoin}
-                            name="Bitcoin"
-                            theme={theme}
-                        />
-                        <CryptoInfo
-                            icon={ethereum}
-                            name="Ethereum"
-                            theme={theme}
-                        />
-                        <CryptoInfo icon={monero} name="Monero" theme={theme} />
-                        <CryptoInfo
-                            icon={dogecoin}
-                            name="Dogecoin"
-                            theme={theme}
-                        />
+                        {/* Return CryptoInfo component for each element in cryptocurrencies array */}
+                        {cryptocurrencies.map(
+                            (crypto: ICrypto, index: number) => {
+                                return (
+                                    <CryptoInfo
+                                        key={index}
+                                        icon={crypto.icon}
+                                        name={crypto.cryptoName}
+                                        theme={theme}
+                                    />
+                                );
+                            }
+                        )}
                     </div>
                 </div>
             </div>

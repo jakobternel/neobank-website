@@ -1,3 +1,5 @@
+// Information on stocks, crypto, and ETFs to be displayed on scrolling ticker tape on investments section
+
 export const stocks = [
     "Microsoft",
     "NVIDIA",

@@ -1,3 +1,10 @@
+/**
+ * Text box component that animates title and content on hover. Initial title will slide up to reveal content in div
+ *
+ * @param title Title to be shown on initial view
+ * @param content Content to be revealed on hover
+ * @param icon Icon to be shown on initial view
+ */
 const TextBox: React.FC<{
     title: string;
     content: string;
@@ -21,7 +28,10 @@ const TextBox: React.FC<{
     );
 };
 
-const Security: React.FC<{}> = ({}) => {
+/**
+ * Security benefits component to be used in OtherBenefits element and shown on button click
+ */
+const Security: React.FC = () => {
     return (
         <div className="w-full border-2 border-outline rounded-xl p-5 md:p-10 flex flex-col gap-10">
             <div className="w-full flex flex-col gap-5">

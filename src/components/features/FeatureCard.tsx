@@ -1,34 +1,47 @@
-import Icon, { IconHandle } from "../shared/Icon";
 import { useRef } from "react";
 import { useAppSelector } from "../../store/hooks";
+import { ThemeMode } from "../../store/slices/theme";
 
+import Icon, { IconHandle } from "../shared/Icon";
+
+/**
+ * Feature Card Component to be used in Features element
+ *
+ * @param icon Source of animated icon to be displayed
+ * @param title Title of feature
+ * @param description Text description of feature
+ */
 const FeatureCard: React.FC<{
     icon: any;
-    text: string;
+    title: string;
     description: string;
-}> = ({ icon, text, description }) => {
-    const theme = useAppSelector((state) => state.theme.mode);
+}> = ({ icon, title, description }) => {
+    const theme: ThemeMode = useAppSelector((state) => state.theme.mode); // Set theme based on current Redux state for use of changing Icon theme
 
-    const iconRef = useRef<IconHandle>(null);
-    const cardRef = useRef<HTMLDivElement>(null);
+    const iconRef = useRef<IconHandle>(null); // Icon ref used to toggle animation play on hover
+    const cardRef = useRef<HTMLDivElement>(null); // Card ref used for handling mouse perspective interaction
 
     const handleMouseMove = (e: React.MouseEvent) => {
         const card = cardRef.current;
         if (!card) return;
 
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        // Get bounding box of card element as well as user mouse interaction coordinates
+        const boundingBox = card.getBoundingClientRect();
+        const x = e.clientX - boundingBox.left;
+        const y = e.clientY - boundingBox.top;
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+        // Get centerpoint of bounding box
+        const centerX = boundingBox.width / 2;
+        const centerY = boundingBox.height / 2;
 
+        // Set X and Y rotation of card element based on user hover
         const rotateX = ((y - centerY) / centerY) * -10;
         const rotateY = ((x - centerX) / centerX) * 10;
 
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     };
 
+    // Apply shadow to element based on mouse hover
     const handleMouseOver = () => {
         if (cardRef.current) {
             cardRef.current.style.boxShadow = `0 0 10px 3px ${
@@ -39,6 +52,7 @@ const FeatureCard: React.FC<{
         }
     };
 
+    // Reset rotation/perspective microinteraction when mouse is taken off element
     const resetRotation = () => {
         if (cardRef.current) {
             cardRef.current.style.transform =
@@ -49,16 +63,20 @@ const FeatureCard: React.FC<{
     return (
         <div
             className="w-full md:max-w-96"
+            // Play Icon animation when mouse enters on feature card
             onMouseEnter={() => iconRef.current?.play()}
+            // Apply microinteraction when mouse moves on feature card
             onMouseMove={(e) => {
                 handleMouseMove(e);
             }}
+            // Remove microinteraction when mouse hovers off feature card
             onMouseLeave={() => {
                 resetRotation();
                 if (cardRef.current) {
                     cardRef.current.style.boxShadow = "";
                 }
             }}
+            // Apply shadow when mouse is placed over feature card
             onMouseOver={() => {
                 if (cardRef.current) {
                     handleMouseOver();
@@ -72,7 +90,7 @@ const FeatureCard: React.FC<{
                 <div className="w-full flex flex-row items-center gap-4">
                     <Icon icon={icon} ref={iconRef} />
                     <p className="text-xl text-cyan font-heading font-semibold">
-                        {text}
+                        {title}
                     </p>
                 </div>
                 <p className="text-sm text-darker">{description}</p>

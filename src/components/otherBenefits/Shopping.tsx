@@ -1,4 +1,7 @@
-const Shopping: React.FC<{}> = ({}) => {
+/**
+ * Shopping benefits component to be used in OtherBenefits element and shown on button click
+ */
+const Shopping: React.FC = () => {
     return (
         <div className="w-full border-2 border-outline rounded-xl p-5 md:p-10 flex gap-10">
             <div className="w-full flex flex-col gap-5">

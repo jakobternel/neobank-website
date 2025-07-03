@@ -1,5 +1,7 @@
 import { useAppSelector } from "../store/hooks";
+import { ThemeMode } from "../store/slices/theme";
 
+// Import app store icons as svg files
 import { ReactComponent as AppleWhite } from "../assets/appStore/apple_white.svg";
 import { ReactComponent as AppleBlack } from "../assets/appStore/apple_black.svg";
 import { ReactComponent as GoogleWhite } from "../assets/appStore/google_white.svg";
@@ -7,8 +9,11 @@ import { ReactComponent as GoogleBlack } from "../assets/appStore/google_black.s
 
 const phone = require("../assets/phone.png");
 
-const Download: React.FC<{}> = ({}) => {
-    const theme = useAppSelector((state) => state.theme.mode);
+/**
+ * Element for bottom of page download CTA
+ */
+const Download: React.FC = () => {
+    const theme: ThemeMode = useAppSelector((state) => state.theme.mode); // Get user theme from Redux state
 
     return (
         <div className="px-5 sm:px-10 md:px-20 lg:px-40">
@@ -22,6 +27,7 @@ const Download: React.FC<{}> = ({}) => {
                         control — get started in just minutes!
                     </p>
                     <div className="flex gap-3 h-10 mt-5">
+                        {/* Change app store icon depending on user selected theme */}
                         {theme === "dark" ? (
                             <>
                                 <AppleWhite className="h-full w-auto cursor-pointer" />
@@ -36,7 +42,11 @@ const Download: React.FC<{}> = ({}) => {
                     </div>
                 </div>
                 <div className="hidden w-1/2 lg:flex justify-center items-end self-stretch pt-5">
-                    <img src={phone} alt="app screenshot" className="max-h-full w-auto object-contain" />
+                    <img
+                        src={phone}
+                        alt="app screenshot"
+                        className="max-h-full w-auto object-contain"
+                    />
                 </div>
             </div>
         </div>

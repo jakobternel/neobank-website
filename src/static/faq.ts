@@ -1,4 +1,4 @@
-// FAQ questions and answers
+// FAQ content to be rendered in expandable components
 
 export interface IFAQElement {
     title: string;

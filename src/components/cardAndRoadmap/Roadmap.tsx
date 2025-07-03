@@ -1,5 +1,15 @@
 import { roadmapElements } from "../../static/roadmap";
 
+/**
+ * Roadmap item component to display on the roadmap
+ *
+ * @param month Month the roadmap feature was/will be released
+ * @param year Year the roadmap feature was/will be released
+ * @param title Short title of the roadmap feature
+ * @param description Text description of the roadmap feature
+ * @param rightAlign Specify whether the roadmap item should be aligned to the right on wide screens. If user is on mobile, all roadmap items are set to right-based
+ * @param isLast Optional prop for specifying if roadmap item is the last to be shown. Will not generate line below year/month indicator if last in series
+ */
 const RoadmapItem: React.FC<{
     month: string;
     year: string;
@@ -38,6 +48,7 @@ const RoadmapItem: React.FC<{
                     <p className="font-heading text-xs">{year}</p>
                     <p className="font-heading text-xs">{month}</p>
                 </div>
+                {/* Do not generate bottom line if isLast is specified */}
                 {!isLast && (
                     <div className="bg-muted w-[1.5px] h-20 md:h-10"></div>
                 )}
@@ -47,12 +58,16 @@ const RoadmapItem: React.FC<{
     );
 };
 
-const Roadmap: React.FC<{}> = ({}) => {
+/**
+ * Component for displaying the feature roadmap including past and future feature releases
+ */
+const Roadmap: React.FC = () => {
     return (
         <div className="w-full flex-grow">
             <div className="h-96 md:h-72 relative">
                 <div
                     className="absolute w-full h-6 top-0 z-20"
+                    // Set shadow on top of roadmap component to smoothly fade out content on scroll
                     style={{
                         background:
                             "linear-gradient(0deg, var(--shadowTransparent) 0%, var(--shadowSolid) 100%)",
@@ -60,6 +75,7 @@ const Roadmap: React.FC<{}> = ({}) => {
                 ></div>
                 <div className="overflow-scroll scrollbar-hidden w-full h-full">
                     <div className="w-full h-12"></div>
+                    {/* Create roadmap item component for each feature release based on information in roadmapElements file */}
                     {roadmapElements.map((roadmapContent, index) => {
                         return (
                             <RoadmapItem
@@ -78,6 +94,7 @@ const Roadmap: React.FC<{}> = ({}) => {
                 </div>
                 <div
                     className="absolute w-full h-6 bottom-0 z-20"
+                    // Set shadow on bottom of roadmap component to smoothly fade out content on scroll
                     style={{
                         background:
                             "linear-gradient(180deg, var(--shadowTransparent) 0%, var(--shadowSolid) 100%)",

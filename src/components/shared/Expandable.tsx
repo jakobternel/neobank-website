@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
+/**
+ * Expandable section that displays additional text content when clicked on
+ *
+ * @param title Title of expandable section
+ * @param content Text content to be displayed when section expanded
+ */
 const Expandable: React.FC<{ title: string; content: string }> = ({
     title,
     content,
@@ -9,6 +15,7 @@ const Expandable: React.FC<{ title: string; content: string }> = ({
 
     const contentRef = useRef<HTMLDivElement>(null);
 
+    // Set height of content element to content height when expanded. Set to 0 if not expanded. Transition handled using Tailwind transition
     useEffect(() => {
         if (expanded && contentRef.current) {
             setHeight(contentRef.current.scrollHeight);

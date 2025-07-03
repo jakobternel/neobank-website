@@ -1,3 +1,5 @@
+// Reviews to be displayed on reviews section
+
 export interface IReview {
     name: string;
     rating: number;

@@ -9,16 +9,23 @@ import {
     Tooltip,
 } from "recharts";
 
-import { stocks, crypto, etfs } from "../../static/investments";
+import { stocks, crypto, etfs } from "../../static/investments"; // Import example arrays of stocks, crypto, etfs which can be invested on platform. Used on scrolling ticker tape
 import { useAppSelector } from "../../store/hooks";
 
+/**
+ * Element for scrolling ticker tape showing examples of securities that can be invested in
+ *
+ * @param data Array of strings containing the names of securities for a given investment class
+ * @param reversed Optional parameter for specifying if the ticker should play in reverse. By default, will scroll from right to left <-. If reversed is set to true, will go from left to right ->
+ */
 const TextScrolling: React.FC<{ data: string[]; reversed?: boolean }> = ({
     data,
     reversed,
 }) => {
     const contentRef = useRef<HTMLDivElement>(null);
-    const [contentWidth, setContentWidth] = useState(0);
+    const [contentWidth, setContentWidth] = useState(0); // Width of scrolling ticker tape element once populated with data. Used to ensure smooth transition through all tickers/names
 
+    // Get width of ticker tape element with data
     useEffect(() => {
         if (contentRef.current) {
             setContentWidth(contentRef.current.offsetWidth);
@@ -36,40 +43,40 @@ const TextScrolling: React.FC<{ data: string[]; reversed?: boolean }> = ({
                     width: contentWidth ? `${contentWidth * 2}px` : "auto",
                 }}
             >
-                <div
-                    ref={contentRef}
-                    className="flex shrink-0 whitespace-nowrap"
-                >
-                    {data.map((name, index) => (
+                {/* Duplicate ticker tape to ensure smooth animation/looping */}
+                {[...Array(2)].map((_: undefined, tapeIndex: number) => {
+                    return (
                         <div
-                            key={`first-${index}`}
-                            className="flex items-center"
+                            ref={tapeIndex === 0 ? contentRef : null} // Only apply contentRef for width calculation on the first ticker tape
+                            className="flex shrink-0 whitespace-nowrap"
                         >
-                            <p className="text-xs text-darker">{name}</p>
-                            <p className="px-1 text-sm text-muted">•</p>
+                            {/* Generate div element for each ticker/name in data array */}
+                            {data.map((name, index) => (
+                                <div
+                                    key={`${tapeIndex}-${index}`}
+                                    className="flex items-center"
+                                >
+                                    <p className="text-xs text-darker">
+                                        {name}
+                                    </p>
+                                    <p className="px-1 text-sm text-muted">•</p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-
-                <div className="flex shrink-0 whitespace-nowrap">
-                    {data.map((name, index) => (
-                        <div
-                            key={`second-${index}`}
-                            className="flex items-center"
-                        >
-                            <p className="text-xs text-darker">{name}</p>
-                            <p className="px-1 text-sm text-muted">•</p>
-                        </div>
-                    ))}
-                </div>
+                    );
+                })}
             </div>
         </div>
     );
 };
 
-const Investing: React.FC<{}> = ({}) => {
-    const theme = useAppSelector((state) => state.theme.mode);
+/**
+ * Investing benefits component to be used in OtherBenefits element and shown on button click
+ */
+const Investing: React.FC = () => {
+    const theme = useAppSelector((state) => state.theme.mode); // Get current user theme from Redux state. Used for changing the colour of recharts graph elements
 
+    // Data to be used in recharts graph
     const data = [
         { month: "Jan", value: 5000 },
         { month: "Feb", value: 5400 },
@@ -99,9 +106,12 @@ const Investing: React.FC<{}> = ({}) => {
                     </p>
                 </div>
                 <div className="w-full h-56">
+                    {/* Create recharts responsive container that takes up full space available from parent div */}
                     <ResponsiveContainer width="100%" height="100%">
+                        {/* Create area chart setting horizontal margin to 20 to allow for XAxis label overflow */}
                         <AreaChart data={data} margin={{ right: 20, left: 20 }}>
                             <defs>
+                                {/* Linear gradient to appear below line */}
                                 <linearGradient
                                     id="color"
                                     x1="0"
@@ -121,20 +131,23 @@ const Investing: React.FC<{}> = ({}) => {
                                     />
                                 </linearGradient>
                             </defs>
+                            {/* XAxis labels to show below graph */}
                             <XAxis
                                 dataKey="month"
                                 stroke={
                                     theme === "dark" ? "#475569" : "#94a3b8"
                                 }
                             />
+                            {/* Grid background on graph */}
                             <CartesianGrid
                                 strokeDasharray="3 3"
                                 stroke={
                                     theme === "dark" ? "#475569" : "#94a3b8"
                                 }
                             />
+                            {/* Handles line that shows when hovering over graph */}
                             <Tooltip
-                                content={<></>}
+                                content={() => null} // Set to null to remove info box that appears on graph hover
                                 cursor={{
                                     stroke:
                                         theme === "dark"
@@ -143,6 +156,7 @@ const Investing: React.FC<{}> = ({}) => {
                                     strokeWidth: 1,
                                 }}
                             />
+                            {/* Graph to be shown based on data variable */}
                             <Area
                                 type="monotone"
                                 dataKey="value"

@@ -1,36 +1,32 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { toggleTheme } from "../store/slices/theme";
+import { ThemeMode, toggleTheme } from "../store/slices/theme";
 
-const Navigation: React.FC<{}> = () => {
-    const theme = useAppSelector((state) => state.theme.mode);
+/**
+ * Element for handling the display and control of nav bar and navigation menu
+ */
+const Navigation: React.FC = () => {
+    const theme: ThemeMode = useAppSelector((state) => state.theme.mode); // Get user theme from Redux state
 
-    const [navOpen, setNavOpen] = useState<boolean>(false);
-    const [scrolled, setScrolled] = useState<boolean>(false);
-    const [viewportHeight, setViewportHeight] = useState<number>(0);
+    const [navOpen, setNavOpen] = useState<boolean>(false); // State for handling nav open/closed
+    const [scrolled, setScrolled] = useState<boolean>(false); // State for handling if page has been scrolled by more than 50px
 
     const dispatch = useAppDispatch();
 
+    // Event listener for detecting when user scrolls on page. Set setScrolled to true if page scrolled more than 50px to display background on nav bar which is transparent by default
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
         };
 
-        const updateHeight = () => {
-            setViewportHeight(window.innerHeight);
-        };
-
-        updateHeight();
-
         window.addEventListener("scroll", handleScroll);
-        window.addEventListener("resize", updateHeight);
 
         return () => {
             window.removeEventListener("scroll", handleScroll);
-            window.removeEventListener("resize", updateHeight);
         };
     }, []);
 
+    // Toggle overflow-hidden on document based on navOpen status
     useEffect(() => {
         navOpen
             ? document.body.classList.add("overflow-hidden")
@@ -44,10 +40,12 @@ const Navigation: React.FC<{}> = () => {
     return (
         <div className="z-50 sticky top-0">
             <div
+                // Dynamically show/hide navBar based on if navOpen is true or not. These classes only apply on screens smaller than Tailwind sm as they are overwritten by sm:block
                 className={`${navOpen ? "block h-dvh" : "hidden"}
                 sm:block absolute w-screen top-0 left-0 sm:h-auto bg-secondary sm:bg-transparent p-10 sm:p-0`}
             >
                 <div
+                    // Set background on navBar if user has scrolled on page
                     className={`${
                         scrolled && !navOpen ? "bg-backgroundLighter" : ""
                     } transition-all flex flex-col sm:flex-row justify-start sm:justify-between sm:px-10 lg:px-8 xl:px-20 sm:py-4 items-start sm:items-center h-full`}
@@ -59,8 +57,9 @@ const Navigation: React.FC<{}> = () => {
                         <div className="flex flex-row gap-5 sm:hidden text-main text-2xl">
                             <i
                                 onClick={() => {
-                                    dispatch(toggleTheme());
+                                    dispatch(toggleTheme()); // Toggle theme using Redux if icon clicked
                                 }}
+                                // Show sun/moon icon depending on user theme
                                 className={`fi ${
                                     theme === "dark"
                                         ? "fi-br-sun"
@@ -102,6 +101,7 @@ const Navigation: React.FC<{}> = () => {
                 </div>
             </div>
 
+            {/* Mobile button for showing/hiding navigation menu */}
             <i
                 onClick={() => setNavOpen(true)}
                 className={`${navOpen ? "hidden" : "absolute"} ${

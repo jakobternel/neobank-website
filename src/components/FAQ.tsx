@@ -2,7 +2,10 @@ import Expandable from "./shared/Expandable";
 
 import { faqInformation } from "../static/faq";
 
-const FAQ: React.FC<{}> = ({}) => {
+/**
+ * Element for frequently asked questions expandable components
+ */
+const FAQ: React.FC = () => {
     return (
         <div className="px-5 sm:px-10 md:px-20 lg:px-40 flex flex-col gap-3 items-center">
             <h1 className="text-4xl font-bold font-heading text-center">

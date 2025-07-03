@@ -1,9 +1,13 @@
 import { useAppSelector } from "../store/hooks";
+import { ThemeMode } from "../store/slices/theme";
 
 const icon = require("../assets/logo_white.png");
 
-const Footer: React.FC<{}> = () => {
-    const theme = useAppSelector((state) => state.theme.mode);
+/**
+ * Element for webpage footer
+ */
+const Footer: React.FC = () => {
+    const theme: ThemeMode = useAppSelector((state) => state.theme.mode); // Get user theme from Redux state
 
     return (
         <div>
@@ -47,6 +51,7 @@ const Footer: React.FC<{}> = () => {
                     <div className="w-[calc(50%-10px)] h-full">
                         <p className="font-bold mb-2">Info</p>
                         <div className="space-y-1">
+                            {/* Create div element for each link to be displayed under Info section on footer */}
                             {[
                                 "Features",
                                 "Card Benefits",
@@ -66,6 +71,7 @@ const Footer: React.FC<{}> = () => {
                     <div className="w-[calc(50%-10px)] h-full">
                         <p className="font-bold mb-2">Company</p>
                         <div className="space-y-1">
+                            {/* Create div element for each link to be displayed under Company section on footer */}
                             {[
                                 "About Us",
                                 "Help & Support",

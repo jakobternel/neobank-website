@@ -1,6 +1,9 @@
 import NewsItem from "./blog/NewsItem";
 
-const News: React.FC<{}> = () => {
+/**
+ * Element for displaying information on news and announcements
+ */
+const News: React.FC = () => {
     return (
         <div className="flex flex-col md:flex-row gap-10 md:gap-5 justify-between px-5 sm:px-10 md:px-5 lg:px-16 xl:px-20">
             <div className="w-full md:w-1/2 lg:w-5/12 flex flex-col gap-5 justify-center">

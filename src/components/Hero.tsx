@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { BlurDotBg } from "../modules/BlurDotBg.module";
 import { useAppSelector } from "../store/hooks";
+import { ThemeMode } from "../store/slices/theme";
 
+// Labels to rotate through for typing effect
 const labels = [
     "students",
     "travellers",
@@ -17,15 +19,19 @@ const labels = [
     "Gen Z",
 ];
 
-const Hero: React.FC<{}> = () => {
-    const theme = useAppSelector((state) => state.theme.mode);
+/**
+ * Element for hero section of webpage
+ */
+const Hero: React.FC = () => {
+    const theme: ThemeMode = useAppSelector((state) => state.theme.mode); // Load user theme from Redux state
 
     const [labelText, setLabelText] = useState<string>("");
     const [wordIndex, setWordIndex] = useState<number>(0);
     const [isDeleting, setIsDeleting] = useState(false);
 
-    const backgroundRef = useRef(null);
+    const backgroundRef = useRef(null); // Ref for blurred background effect
 
+    // Generate blur background using BlurDotBg. Sourced from https://www.color4bg.com/en/
     useEffect(() => {
         if (backgroundRef.current) {
             const background = new BlurDotBg({
@@ -55,25 +61,30 @@ const Hero: React.FC<{}> = () => {
         }
     }, []);
 
+    // Typing effect on hero section
     useEffect(() => {
-        const currentWord = labels[wordIndex];
-        const isDoneTyping = labelText === currentWord;
-        const isDoneDeleting = labelText === "";
-        const typeSpeed = isDeleting ? 50 : 100;
+        const currentWord = labels[wordIndex]; // Sets the current word from the list of labels
+        const isDoneTyping = labelText === currentWord; // Boolean for if the word if finished typing
+        const isDoneDeleting = labelText === ""; // Boolean for if the word has been deleted
+        const typeSpeed = isDeleting ? 50 : 100; // Typing effect speed
 
         let timeout: NodeJS.Timeout;
 
         if (!isDeleting && !isDoneTyping) {
+            // If word is not finished typing, but not finished deleting, add extra letter to labelText
             timeout = setTimeout(() => {
                 setLabelText(currentWord.slice(0, labelText.length + 1));
             }, typeSpeed);
         } else if (!isDeleting && isDoneTyping) {
+            // If word is finished typing, set mode to deleting after a 1.5s pause
             timeout = setTimeout(() => setIsDeleting(true), 1500);
         } else if (isDeleting && !isDoneDeleting) {
+            // If word is not fully deleted and mode set to deleting, remove a letter from labelText
             timeout = setTimeout(() => {
                 setLabelText(currentWord.slice(0, labelText.length - 1));
             }, typeSpeed);
         } else if (isDeleting && isDoneDeleting) {
+            // If mode is set to deleting and word has been fully deleted, set mode to typing (deleting = false) and set wordIndex to index of next word
             setIsDeleting(false);
             setWordIndex((prev) => (prev + 1) % labels.length);
         }

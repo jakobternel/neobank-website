@@ -1,8 +1,10 @@
+// Roadmap elements showing past and future features. Used in the generation of scrollable roadmap component
+
 export interface IRoadmapElement {
-    month: string,
-    year: string,
-    title: string,
-    description: string
+    month: string;
+    year: string;
+    title: string;
+    description: string;
 }
 
 export const roadmapElements: IRoadmapElement[] = [

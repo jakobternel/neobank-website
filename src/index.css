@@ -5,6 +5,7 @@
 /* Import icons */
 @import "@flaticon/flaticon-uicons/css/all/all.css";
 
+/* Import tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -28,10 +29,6 @@ body {
     @apply w-full h-full p-0 m-0 transition-all bg-background;
 }
 
-.breakpointDev {
-    @apply !bg-red-500 sm:!bg-orange-500 md:!bg-yellow-500 lg:!bg-green-500 xl:!bg-blue-500;
-}
-
 .fi {
     @apply flex items-center;
 }
@@ -44,6 +41,7 @@ body {
     scrollbar-width: none;
 }
 
+/* Light theme colour scheme */
 [data-theme="light"] {
     --background: #f1f5f9;
     --backgroundLighter: #f8fafc;
@@ -62,6 +60,7 @@ body {
     --shadowTransparent: rgba(241, 245, 249, 0);
 }
 
+/* Dark theme colour scheme */
 [data-theme="dark"] {
     --background: #0b1724;
     --backgroundLighter: #0d1b2a;

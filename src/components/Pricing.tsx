@@ -1,4 +1,23 @@
-const Pricing: React.FC<{}> = ({}) => {
+import { IPricingBenefits, pricingBenefits } from "../static/pricingBenefits";
+
+/**
+ * Element for containing pricing information and product tier benefits
+ */
+const Pricing: React.FC = () => {
+    // Return array of JSX elements for each individual benefit in chosen product tier
+    const returnBenefitItems = (benefitItemData: IPricingBenefits[]) => {
+        return benefitItemData.map(
+            (benefit: IPricingBenefits, index: number) => {
+                return (
+                    <div className="flex flex-row gap-3" key={index}>
+                        <i className={`fi ${benefit.icon}`}></i>
+                        <p className="text-sm text-muted">{benefit.text}</p>
+                    </div>
+                );
+            }
+        );
+    };
+
     return (
         <div className="px-5 sm:px-10 md:px-5 lg:px-20 xl:px-40 flex flex-col">
             <div className="flex flex-col md:flex-row">
@@ -11,42 +30,8 @@ const Pricing: React.FC<{}> = ({}) => {
                         real-time FX rates — all for free.
                     </p>
                     <div className="w-full border-t-2 border-outline flex flex-col gap-2 pt-5 mt-2">
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-sr-wallet"></i>
-                            <p className="text-sm text-muted">
-                                Multi-currency account (up to 3 currencies)
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-sr-deposit"></i>
-                            <p className="text-sm text-muted">
-                                Fee-free ATM withdrawals (up to $300/month)
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-sr-hand-holding-usd"></i>
-                            <p className="text-sm text-muted">
-                                Instant peer-to-peer transfers
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-rr-exchange-alt"></i>
-                            <p className="text-sm text-muted">
-                                Real-time FX rates
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-sr-sack-dollar"></i>
-                            <p className="text-sm text-muted">
-                                Budgeting tools
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-sr-credit-card"></i>
-                            <p className="text-sm text-muted">
-                                Virtual debit card
-                            </p>
-                        </div>
+                        {/* Return elements for nomad tier benefits */}
+                        {returnBenefitItems(pricingBenefits.nomad)}
                     </div>
                     <div className="flex-grow"></div>
                     <div className="rounded-full flex justify-between border-2 border-outline py-2 px-4 mt-4 cursor-pointer hover:bg-backgroundLight bg-none transition-all">
@@ -77,48 +62,8 @@ const Pricing: React.FC<{}> = ({}) => {
                         <p className="text-sm font-semibold pb-1">
                             All Nomad features, plus:
                         </p>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-sr-wallet"></i>
-                            <p className="text-sm text-muted">
-                                Unlimited multi-currency wallets
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-sr-deposit"></i>
-                            <p className="text-sm text-muted">
-                                Fee-free ATM withdrawals (up to $1000/month)
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-sr-plane-departure"></i>
-                            <p className="text-sm text-muted">
-                                Travel insurance coverage
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-sr-phone-call"></i>
-                            <p className="text-sm text-muted">
-                                Priority customer support
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-rr-exchange-alt"></i>
-                            <p className="text-sm text-muted">
-                                FX rate alerts & auto-conversion rules
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-sr-star-christmas"></i>
-                            <p className="text-sm text-muted">
-                                Early access to new features
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-sr-credit-card"></i>
-                            <p className="text-sm text-muted">
-                                Custom debit card
-                            </p>
-                        </div>
+                        {/* Return elements for explorer tier benefits */}
+                        {returnBenefitItems(pricingBenefits.explorer)}
                     </div>
                     <div className="flex-grow"></div>
                     <div className="rounded-full flex justify-between bg-primaryOff py-2 px-4 mt-4 cursor-pointer hover:bg-primary transition-all">
@@ -140,42 +85,8 @@ const Pricing: React.FC<{}> = ({}) => {
                         <p className="text-sm font-semibold pb-1">
                             All Explorer features, plus:
                         </p>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-sr-deposit"></i>
-                            <p className="text-sm text-muted">
-                                No ATM withdrawal limits
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-brands-bitcoin"></i>
-                            <p className="text-sm text-muted">
-                                Crypto wallet with staking & trading
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-sr-dashboard-monitor"></i>
-                            <p className="text-sm text-muted">
-                                Smart investment dashboard
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-sr-artificial-intelligence"></i>
-                            <p className="text-sm text-muted">
-                                AI-powered spending insights
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-rs-percent-50"></i>
-                            <p className="text-sm text-muted">
-                                Weekly vouchers and discounts
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-3">
-                            <i className="fi fi-sr-credit-card"></i>
-                            <p className="text-sm text-muted">
-                                Metal debit card
-                            </p>
-                        </div>
+                        {/* Return elements for pioneer tier benefits */}
+                        {returnBenefitItems(pricingBenefits.pioneer)}
                     </div>
                     <div className="flex-grow"></div>
                     <div className="rounded-full flex justify-between border-2 border-outline py-2 px-4 mt-4 cursor-pointer hover:bg-backgroundLight bg-none transition-all">
